@@ -7,8 +7,11 @@ import java.util.List;
 
 public interface IUserService extends UserDetailsService {
 
+    List<UserInfo> findAll() throws Exception;
 
-    public List<UserInfo> findAll() throws Exception;
-    public void addUser(UserInfo user) throws Exception;
-    public UserInfo findByUsername(String username) throws Exception;
+    void addUser(UserInfo user) throws Exception;
+
+    UserInfo findByUsername(String username) throws Exception;
+
+    void updateUser(UserInfo user) throws Exception;
 }

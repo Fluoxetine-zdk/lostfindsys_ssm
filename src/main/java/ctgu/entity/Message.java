@@ -1,5 +1,7 @@
 package ctgu.entity;
 
+import java.sql.Date;
+
 public class Message {
     private int id;
     private String username;
@@ -7,6 +9,8 @@ public class Message {
     private int class_message;
     private String address;
     private int bastus;
+    private int reward;
+    private String createdate;
 
     @Override
     public String toString() {
@@ -15,9 +19,27 @@ public class Message {
                 ", username='" + username + '\'' +
                 ", description='" + description + '\'' +
                 ", class_message=" + class_message +
-                ", address=" + address +
+                ", address='" + address + '\'' +
                 ", bastus=" + bastus +
+                ", reward=" + reward +
+                ", createdate='" + createdate + '\'' +
                 '}';
+    }
+
+    public String getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(String createdate) {
+        this.createdate = createdate;
+    }
+
+    public int getReward() {
+        return reward;
+    }
+
+    public void setReward(int reward) {
+        this.reward = reward;
     }
 
     public int getId() {

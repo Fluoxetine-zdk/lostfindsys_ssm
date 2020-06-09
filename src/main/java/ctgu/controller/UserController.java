@@ -35,7 +35,7 @@ public class UserController {
         return "redirect:findAll.do";
     }
 
-    @RequestMapping("/updateUser.do")
+    @RequestMapping("/findByUsername.do")
     public ModelAndView findByUsername(String username) throws Exception{
         ModelAndView mv = new ModelAndView();
         UserInfo user = userService.findByUsername(username);
@@ -44,4 +44,9 @@ public class UserController {
         return mv;
     }
 
+    @RequestMapping("/updateUser.do")
+    public String updateUser(UserInfo user) throws Exception {
+        userService.updateUser(user);
+        return "redirect:findAll.do";
+    }
 }

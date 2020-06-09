@@ -227,7 +227,8 @@
 										<th class="sorting_asc">ID</th>
 										<th class="sorting_desc">用户姓名</th>
 										<th class="sorting_asc sorting_asc_disabled">信息描述</th>
-<%--										<th class="sorting_desc sorting_desc_disabled">发布日期</th>--%>
+										<th class="sorting_desc">酬金</th>
+										<th class="sorting_desc sorting_desc_disabled">发布日期</th>
 										<th class="sorting">信息类别</th>
 										<th class="text-center sorting">地址</th>
 										<th class="text-center sorting">状态</th>
@@ -244,14 +245,29 @@
 											<td>${message.id }</td>
 											<td>${message.username}</td>
 											<td>${message.description}</td>
-<%--											<td>${message.pubdate}</td>--%>
-											<td class="text-center">${message.class_message}</td>
+											<c:if test="${message.reward == 0 || message.reward == null}">
+												<td>无</td>
+											</c:if>
+											<c:if test="${message.reward > 0 }">
+												<td>${message.reward}</td>
+											</c:if>
+											<td>${message.createdate}</td>
+											<c:if test="${message.class_message == 0}">
+												<td class="text-center">失物信息</td>
+											</c:if>
+											<c:if test="${message.class_message == 1}">
+												<td class="text-center">招领信息</td>
+											</c:if>
 											<td>${message.address}</td>
-											<td class="text-center">${message.bastus }</td>
+											<c:if test="${message.bastus == 0}">
+												<td class="text-center">未解决</td>
+											</c:if>
+											<c:if test="${message.bastus == 1}">
+												<td class="text-center">已解决</td>
+											</c:if>
 											<td class="text-center">
-												<button type="button" class="btn bg-olive btn-xs">订单</button>
-												<button type="button" class="btn bg-olive btn-xs">详情</button>
-												<button type="button" class="btn bg-olive btn-xs">编辑</button>
+												<a href="${pageContext.request.contextPath}/message/findByMessId.do?id=${message.id}" class="btn bg-olive btn-xs">编辑</a>
+												<button type="button" class="btn bg-olive btn-xs">删除</button>
 											</td>
 										</tr>
 									</c:forEach>

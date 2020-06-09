@@ -25,4 +25,14 @@ public class MessServiceImpl implements IMessService {
         messageDao.addMsee(message);
     }
 
+    @Override
+    public Message findByMessId(int id) throws Exception {
+        return messageDao.findByMessId(id);
+    }
+
+    @Override
+    public void updateMess(Message message) {
+        messageDao.updateMess(message);
+    }
+
 }

@@ -30,4 +30,21 @@ public class MessageController {
         messService.addMess(message);
         return "redirect:findAll.do";
     }
+
+    @RequestMapping("/findByMessId.do")
+    public ModelAndView findByMessId(int id) throws Exception {
+        ModelAndView mv = new ModelAndView();
+        Message message = messService.findByMessId(id);
+        mv.addObject(message);
+        mv.setViewName("backstage/message-update");
+        return mv;
+    }
+
+    @RequestMapping("/updateMess.do")
+    public String updateMess(Message message){
+        messService.updateMess(message);
+        return "redirect:findAll.do";
+    }
+
+
 }

@@ -100,44 +100,40 @@
 					<div class="panel-heading">编辑信息</div>
 					<div class="row data-type">
 
-						<div class="col-md-2 title">信息编号</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="productNum"
-								placeholder="产品编号" value="">
-						</div>
+
 						<div class="col-md-2 title">用户账号</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="productName"
+							<input type="text" class="form-control" name="username"
 								placeholder="账号" value="">
 						</div>
-						<div class="col-md-2 title">发布时间</div>
-						<div class="col-md-4 data">
-							<div class="input-group date">
-								<div class="input-group-addon">
-									<i class="fa fa-calendar"></i>
-								</div>
-								<input type="text" class="form-control pull-right"
-									id="datepicker-a3" name="departureTime">
-							</div>
-						</div>
+<%--						<div class="col-md-2 title">发布时间</div>--%>
+<%--						<div class="col-md-4 data">--%>
+<%--							<div class="input-group date">--%>
+<%--								<div class="input-group-addon">--%>
+<%--									<i class="fa fa-calendar"></i>--%>
+<%--								</div>--%>
+<%--								<input type="text" class="form-control pull-right"--%>
+<%--									id="datepicker-a3" name="departureTime">--%>
+<%--							</div>--%>
+<%--						</div>--%>
 
 
 						<div class="col-md-2 title">丢失地点</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="cityName"
+							<input type="text" class="form-control" name="address"
 								placeholder="详细地址" value="">
 						</div>
 
 						<div class="col-md-2 title">酬金</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" placeholder="金额"
-								name="productPrice" value="">
+								name="reward" value="">
 						</div>
 
 						<div class="col-md-2 title">信息类别</div>
 						<div class="col-md-4 data">
 							<select class="form-control select2" style="width: 100%"
-								name="productStatus">
+								name="bastus">
 								<option value="0" selected="selected">失物信息</option>
 								<option value="1">招领信息</option>
 							</select>
@@ -146,7 +142,7 @@
 						<div class="col-md-2 title rowHeight2x">信息详情</div>
 						<div class="col-md-10 data rowHeight2x">
 							<textarea class="form-control" rows="3" placeholder="信息详情"
-								name="productDesc"></textarea>
+								name="description"></textarea>
 						</div>
 
 					</div>

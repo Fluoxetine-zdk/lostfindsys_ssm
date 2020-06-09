@@ -57,4 +57,9 @@ public class UserServiceImpl implements IUserService {
         return userdao.findByUsername(username);
     }
 
+    @Override
+    public void updateUser(UserInfo user) throws Exception {
+        userdao.updateUser(user);
+    }
+
 }

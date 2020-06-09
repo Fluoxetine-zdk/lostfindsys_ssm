@@ -1,14 +1,15 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>失物招领系统后台管理 - 用户信息修改</title>
-
+<title>数据 - AdminLTE2定制版</title>
+<meta name="description" content="AdminLTE2定制版">
+<meta name="keywords" content="AdminLTE2定制版">
 
 <!-- Tell the browser to be responsive to screen width -->
 <meta
@@ -79,90 +80,76 @@
 			<!-- 内容头部 -->
 			<section class="content-header">
 			<h1>
-				用户管理 <small>用户表单</small>
+				信息管理 <small>添加信息</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
 						class="fa fa-dashboard"></i> 首页</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/user/findAll.do">用户管理</a></li>
-				<li class="active">用户表单</li>
+					href="${pageContext.request.contextPath}/message/findAll.do">信息管理</a></li>
+				<li class="active">添加信息</li>
 			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
-			<form action="${pageContext.request.contextPath}/user/updateUser.do"
+			<form action="${pageContext.request.contextPath}/message/updateMess.do"
 				method="post">
 				<!-- 正文区域 -->
 				<section class="content"> <!--产品信息-->
 
 				<div class="panel panel-default">
-					<div class="panel-heading">用户信息</div>
+					<div class="panel-heading">编辑信息</div>
 					<div class="row data-type">
 
+						<input type="hidden" name="id" value="${message.id}">
 						<div class="col-md-2 title">用户账号</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="username"
-								placeholder="用户名称" value="${user.username}">
+								placeholder="账号" value="${message.username}">
 						</div>
-						<div class="col-md-2 title">密码</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="password"
-								placeholder="密码" value="${user.password}">
-						</div>
-						<div class="col-md-2 title">性别</div>
-						<div class="col-md-4 data">
-							<c:if test="${user.sex.equals('男')}">
-								<label><input type="radio" name="sex" value="男" checked>男</label>
-								<label><input type="radio" name="sex" value="女">女</label>
-							</c:if>
-							<c:if test="${user.sex.equals('女')}">
-								<label><input type="radio" name="sex" value="男">男</label>
-								<label><input type="radio" name="sex" value="女" checked>女</label>
-							</c:if>
-							<c:if test="${user.sex == null}">
-								<label><input type="radio" name="sex" value="男">男</label>
-								<label><input type="radio" name="sex" value="女">女</label>
-							</c:if>
-						</div>
-<%--						<div class="col-md-2 title">邮箱</div>--%>
+<%--						<div class="col-md-2 title">发布时间</div>--%>
 <%--						<div class="col-md-4 data">--%>
-<%--							<input type="text" class="form-control" name="email"--%>
-<%--								placeholder="邮箱" value="">--%>
+<%--							<div class="input-group date">--%>
+<%--								<div class="input-group-addon">--%>
+<%--									<i class="fa fa-calendar"></i>--%>
+<%--								</div>--%>
+<%--								<input type="text" class="form-control pull-right"--%>
+<%--									id="datepicker-a3" name="departureTime">--%>
+<%--							</div>--%>
 <%--						</div>--%>
-						<div class="col-md-2 title">联系电话</div>
-						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="mobile"
-								placeholder="联系电话" value="${user.mobile}">
-						</div>
-						<div class="col-md-2 title">用户状态</div>
-						<div class="col-md-4 data">
-							<select class="form-control select2" style="width: 100%"
-								name="status">
-								<c:if test="${user.status == 1}">
-									<option value="0" >禁用</option>
-									<option value="1" selected>可用</option>
-								</c:if>
-								<c:if test="${user.status == 0}">
-									<option value="0" selected>禁用</option>
-									<option value="1">可用</option>
-								</c:if>
 
-							</select>
+
+						<div class="col-md-2 title">丢失地点</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" name="address"
+								placeholder="详细地址" value="${message.address}">
 						</div>
-						<div class="col-md-2 title">权限</div>
+
+						<div class="col-md-2 title">酬金</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" placeholder="金额"
+								name="reward" value="${message.reward}">
+						</div>
+
+						<div class="col-md-2 title">信息类别</div>
 						<div class="col-md-4 data">
 							<select class="form-control select2" style="width: 100%"
-									name="classno">
-								<c:if test="${user.classno == 0}">
-									<option value="0">可用</option>
-									<option value="1" selected="selected">普通用户</option>
+								name="bastus">
+								<c:if test="${message.class_message == 0}">
+									<option value="0" selected="selected">失物信息</option>
+									<option value="1">招领信息</option>
 								</c:if>
-								<c:if test="${user.classno == 1}">
-									<option value="0" selected="selected">管理员</option>
-									<option value="1">禁用</option>
+								<c:if test="${message.class_message == 1}">
+									<option value="0">失物信息</option>
+									<option value="1" selected="selected">招领信息</option>
 								</c:if>
 							</select>
+						</div>
+
+						<div class="col-md-2 title rowHeight2x">信息详情</div>
+						<div class="col-md-10 data rowHeight2x">
+							<textarea class="form-control" rows="3"
+								name="description">${message.description}</textarea>
 						</div>
 
 					</div>
@@ -181,13 +168,12 @@
 
 		<!-- 底部导航 -->
 		<footer class="main-footer">
-			<div class="pull-right hidden-xs">
-				<b>Version</b> 1.0.0
-			</div>
-			<strong>Copyright &copy; 2020 <a
-					href="#">java ssm 07</a>.
-			</strong> All rights reserved.
-		</footer>
+		<div class="pull-right hidden-xs">
+			<b>Version</b> 1.0.8
+		</div>
+		<strong>Copyright &copy; 2014-2017 <a
+			href="http://www.itcast.cn">研究院研发部</a>.
+		</strong> All rights reserved. </footer>
 		<!-- 底部导航 /-->
 
 	</div>
@@ -298,6 +284,25 @@
 				liObj.addClass("active");
 			}
 		}
+
+		$(document).ready(function() {
+			$('#datepicker-a3').datetimepicker({
+				format : "yyyy-mm-dd hh:ii",
+				autoclose : true,
+				todayBtn : true,
+				language : "zh-CN"
+			});
+		});
+
+		$(document).ready(function() {
+			// 激活导航位置
+			setSidebarActive("order-manage");
+			$("#datepicker-a3").datetimepicker({
+				format : "yyyy-mm-dd hh:ii",
+
+			});
+
+		});
 	</script>
 
 

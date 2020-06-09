@@ -26,4 +26,6 @@ public interface IUserDao {
     @Insert("insert into user (username,password,mobile) values (#{username},#{password},#{mobile})")
     public void addUser(UserInfo user) throws Exception;
 
+    @Update("update user set password = #{password},mobile = #{mobile},classno = #{classno},sex = #{sex},status = #{status} where username = #{username} ")
+    public void updateUser(UserInfo user) throws Exception;
 }

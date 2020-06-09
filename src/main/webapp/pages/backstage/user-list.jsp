@@ -150,13 +150,13 @@
 											<td>${user.sex}</td>
 											<td>${user.mobile }</td>
 											<c:if test="${user.status == 1}">
-												<td>开启</td>
+												<td class="">可用</td>
 											</c:if>
 											<c:if test="${user.status == 0}">
-												<td>开启</td>
+												<td>禁用</td>
 											</c:if>
 											<td class="text-center">
-												<a href="${pageContext.request.contextPath}/user/updateUser.do?username=${user.username}" class="btn bg-olive btn-xs">编辑</a>
+												<a href="${pageContext.request.contextPath}/user/findByUsername.do?username=${user.username}" class="btn bg-olive btn-xs">编辑</a>
 
 											</td>
 										</tr>
