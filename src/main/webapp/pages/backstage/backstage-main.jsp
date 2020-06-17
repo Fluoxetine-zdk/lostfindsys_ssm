@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>失物招领系统后台</title>
+<title>失物招领网后台</title>
 
 
 <!-- Tell the browser to be responsive to screen width -->
@@ -151,7 +151,7 @@
 			<div class="pull-right hidden-xs">
 				<b>Version</b> 1.0.0
 			</div>
-			<strong>Copyright &copy; 2020 <a
+			<strong>Copyright &copy; 2020 CTGU<a
 					href="#">java ssm 07</a>.
 			</strong> All rights reserved.
 		</footer>

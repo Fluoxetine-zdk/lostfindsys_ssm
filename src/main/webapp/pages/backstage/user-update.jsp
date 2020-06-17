@@ -85,13 +85,13 @@
 				<li><a href="${pageContext.request.contextPath}/backstage/backstage-main.jsp"><i
 						class="fa fa-dashboard"></i> 首页</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/user/findAll.do">用户管理</a></li>
+					href="${pageContext.request.contextPath}/backstage/user/findAll.do">用户管理</a></li>
 				<li class="active">用户表单</li>
 			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
-			<form action="${pageContext.request.contextPath}/user/updateUser.do"
+			<form action="${pageContext.request.contextPath}/backstage/user/updateUser.do"
 				method="post">
 				<!-- 正文区域 -->
 				<section class="content"> <!--产品信息-->
@@ -102,28 +102,16 @@
 
 						<div class="col-md-2 title">用户账号</div>
 						<div class="col-md-4 data">
-							<input type="text" disabled class="form-control" name="username"
-								placeholder="用户名称" value="${user.username}">
+							<input type="text" disabled class="form-control" name="username" value="${user.username}">
 						</div>
 						<div class="col-md-2 title">密码</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="password"
-								placeholder="密码" value="${user.password}">
+							<input type="text" class="form-control" name="password" value="${user.password}">
 						</div>
 						<div class="col-md-2 title">性别</div>
 						<div class="col-md-4 data">
-							<c:if test="${user.sex.equals('男')}">
-								<label><input type="radio" name="sex" value="男" checked>男</label>
-								<label><input type="radio" name="sex" value="女">女</label>
-							</c:if>
-							<c:if test="${user.sex.equals('女')}">
-								<label><input type="radio" name="sex" value="男">男</label>
-								<label><input type="radio" name="sex" value="女" checked>女</label>
-							</c:if>
-							<c:if test="${user.sex == null}">
-								<label><input type="radio" name="sex" value="男">男</label>
-								<label><input type="radio" name="sex" value="女">女</label>
-							</c:if>
+								<label><input type="radio" name="sex" value="男" <c:if test="${user.sex.equals('男')}">checked</c:if>>男</label>
+								<label><input type="radio" name="sex" value="女" <c:if test="${user.sex.equals('女')}">checked</c:if>>女</label>
 						</div>
 <%--						<div class="col-md-2 title">邮箱</div>--%>
 <%--						<div class="col-md-4 data">--%>
@@ -135,20 +123,42 @@
 							<input type="text" class="form-control" name="mobile"
 								placeholder="联系电话" value="${user.mobile}">
 						</div>
+						<div class="col-md-2 title">邮箱</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" name="mobile" value="${user.email}">
+						</div>
 						<div class="col-md-2 title">用户状态</div>
 						<div class="col-md-4 data">
 							<select class="form-control select2" style="width: 100%"
-								name="status">
-								<option value="0" <c:if test="${user.status == 0}"> selected="selected"</c:if>>禁用</option>
-								<option value="1" <c:if test="${user.status == 1}"> selected="selected"</c:if>>可用</option>
+									name="status">
+								<c:if test="${user.status == 0}">
+									<option value="0" >禁用</option>
+									<option value="1">可用</option>
+								</c:if>
+								<c:if test="${user.status == 1}">
+									<option value="1">可用</option>
+									<option value="0" >禁用</option>
+								</c:if>
 							</select>
 						</div>
+						<%--							<select class="form-control select2" style="width: 100%"--%>
+						<%--								name="status">--%>
+						<%--								<option value="0" <c:if test="${user.status == 0}"> selected="selected"</c:if>>禁用</option>--%>
+						<%--								<option value="1" <c:if test="${user.status == 1}"> selected="selected"</c:if>>可用</option>--%>
+						<%--							</select>--%>
+
 						<div class="col-md-2 title">权限</div>
 						<div class="col-md-4 data">
 							<select class="form-control select2" style="width: 100%"
 									name="classno">
-								<option value="0" <c:if test="${user.classno == 0}"> selected="selected"</c:if>>普通用户</option>
-								<option value="1" <c:if test="${user.classno == 1}"> selected="selected"</c:if>>管理员</option>
+								<c:if test="${user.classno == 0}">
+									<option value="0">普通用户</option>
+									<option value="1">管理员</option>
+								</c:if>
+								<c:if test="${user.classno == 1}">
+									<option value="1">管理员</option>
+									<option value="0">普通用户</option>
+								</c:if>
 							</select>
 						</div>
 
@@ -171,7 +181,7 @@
 			<div class="pull-right hidden-xs">
 				<b>Version</b> 1.0.0
 			</div>
-			<strong>Copyright &copy; 2020 <a
+			<strong>Copyright &copy; 2020 CTGU<a
 					href="#">java ssm 07</a>.
 			</strong> All rights reserved.
 		</footer>

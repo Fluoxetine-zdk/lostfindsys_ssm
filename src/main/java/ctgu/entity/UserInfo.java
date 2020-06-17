@@ -1,7 +1,6 @@
 package ctgu.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 
 public class UserInfo implements Serializable {
@@ -10,6 +9,7 @@ public class UserInfo implements Serializable {
     private String password;
     private String sex;
     private String mobile;
+    private String email;
     private int classno;
     private String classname;
     private int status;
@@ -25,6 +25,14 @@ public class UserInfo implements Serializable {
                 ", classname='" + classname + '\'' +
                 ", status=" + status +
                 '}';
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getStatus() {

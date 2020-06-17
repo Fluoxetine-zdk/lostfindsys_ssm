@@ -3,101 +3,29 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-
 <head>
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
-
-
-<title>失物招领系统后台管理</title>
-
-
-
+<title>失物招领系统后台管理 | Message</title>
 
 
 <!-- Tell the browser to be responsive to screen width -->
 <meta
 	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
 	name="viewport">
-<!-- Bootstrap 3.3.6 -->
-<!-- Font Awesome -->
-<!-- Ionicons -->
-<!-- iCheck -->
-<!-- Morris chart -->
-<!-- jvectormap -->
-<!-- Date Picker -->
-<!-- Daterange picker -->
-<!-- Bootstrap time Picker -->
-<!--<link rel="stylesheet" href="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/plugins/timepicker/bootstrap-timepicker.min.css">-->
-<!-- bootstrap wysihtml5 - text editor -->
-<!--数据表格-->
-<!-- 表格树 -->
-<!-- select2 -->
-<!-- Bootstrap Color Picker -->
-<!-- bootstrap wysihtml5 - text editor -->
-<!--bootstrap-markdown-->
-<!-- Theme style -->
-<!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-<!-- Ion Slider -->
-<!-- ion slider Nice -->
-<!-- bootstrap slider -->
-<!-- bootstrap-datetimepicker -->
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<script>
+		function deleteMess(id) {
+			//安全提示
+			if (confirm("您确定要删除该条信息吗？")){
+				location.href = "${pageContext.request.contextPath}/backstage/message/deleteMess.do?id="+id;
+			}
+		}
+	</script>
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-
-
-
-
-
-
-
-<!-- jQuery 2.2.3 -->
-<!-- jQuery UI 1.11.4 -->
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<!-- Bootstrap 3.3.6 -->
-<!-- Morris.js charts -->
-<!-- Sparkline -->
-<!-- jvectormap -->
-<!-- jQuery Knob Chart -->
-<!-- daterangepicker -->
-<!-- datepicker -->
-<!-- Bootstrap WYSIHTML5 -->
-<!-- Slimscroll -->
-<!-- FastClick -->
-<!-- iCheck -->
-<!-- AdminLTE App -->
-<!-- 表格树 -->
-<!-- select2 -->
-<!-- bootstrap color picker -->
-<!-- bootstrap time picker -->
-<!--<script src="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/plugins/timepicker/bootstrap-timepicker.min.js"></script>-->
-<!-- Bootstrap WYSIHTML5 -->
-<!--bootstrap-markdown-->
-<!-- CK Editor -->
-<!-- InputMask -->
-<!-- DataTables -->
-<!-- ChartJS 1.0.1 -->
-<!-- FLOT CHARTS -->
-<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
-<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
-<!-- jQuery Knob -->
-<!-- Sparkline -->
-<!-- Morris.js charts -->
-<!-- Ion Slider -->
-<!-- Bootstrap slider -->
-<!-- bootstrap-datetimepicker -->
-<!-- 页面meta /-->
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
@@ -201,18 +129,22 @@
 											<i class="fa fa-trash-o"></i> 删除
 										</button>
 										<button type="button" class="btn btn-default" title="刷新"
-												onclick="location.href='${pageContext.request.contextPath}/message/findAll.do'">
+												onclick="location.href='${pageContext.request.contextPath}/backstage/message/findAll.do'">
 											<i class="fa fa-refresh"></i> 刷新
 										</button>
 									</div>
 								</div>
 							</div>
-							<div class="box-tools pull-right">
-								<div class="has-feedback">
-									<input type="text" class="form-control input-sm"
-										placeholder="搜索"> <span
-										class="glyphicon glyphicon-search form-control-feedback"></span>
-								</div>
+							<div class="box-tools pull-right form-group form-inline">
+								<form action="${pageContext.request.contextPath}/searchMessInBackstage.do" method="post">
+									<div class="has-feedback">
+										<input type="text" class="form-control input-sm" placeholder="搜索" name="keyword">
+										<input type="hidden" name="page" value="1">
+										<input type="hidden" name="size" value="5">
+										<button type="submit" class="btn btn-default">提交</button>
+									</div>
+								</form>
+
 							</div>
 							<!--工具栏/-->
 
@@ -238,7 +170,7 @@
 								<tbody>
 
 
-									<c:forEach items="${messageList}" var="message">
+									<c:forEach items="${pageInfo.list}" var="message">
 
 										<tr>
 											<td><input name="ids" type="checkbox"></td>
@@ -266,55 +198,15 @@
 												<td class="text-center">已解决</td>
 											</c:if>
 											<td class="text-center">
-												<a href="${pageContext.request.contextPath}/message/findByMessId.do?id=${message.id}" class="btn bg-olive btn-xs">编辑</a>
-												<button type="button" class="btn bg-olive btn-xs">删除</button>
+												<a href="${pageContext.request.contextPath}/backstage/message/findByMessId.do?id=${message.id}" class="btn bg-olive btn-xs">编辑</a>
+												<a href="${pageContext.request.contextPath}/backstage/message/findAllLeaveMess.do?id=${message.id}&page=1&size=5" class="btn bg-olive btn-xs">查看留言</a>
+												<a href="javascript:deleteMess(${message.id})" class="btn bg-olive btn-xs">删除</a>
 											</td>
 										</tr>
 									</c:forEach>
 								</tbody>
-								<!--
-                            <tfoot>
-                            <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
-                            </tr>
-                            </tfoot>-->
 							</table>
 							<!--数据列表/-->
-
-							<!--工具栏-->
-<%--							<div class="pull-left">--%>
-<%--								<div class="form-group form-inline">--%>
-<%--									<div class="btn-group">--%>
-<%--										<button type="button" class="btn btn-default" title="新建">--%>
-<%--											<i class="fa fa-file-o"></i> 新建--%>
-<%--										</button>--%>
-<%--										<button type="button" class="btn btn-default" title="删除">--%>
-<%--											<i class="fa fa-trash-o"></i> 删除--%>
-<%--										</button>--%>
-<%--										<button type="button" class="btn btn-default" title="开启">--%>
-<%--											<i class="fa fa-check"></i> 开启--%>
-<%--										</button>--%>
-<%--										<button type="button" class="btn btn-default" title="屏蔽">--%>
-<%--											<i class="fa fa-ban"></i> 屏蔽--%>
-<%--										</button>--%>
-<%--										<button type="button" class="btn btn-default" title="刷新">--%>
-<%--											<i class="fa fa-refresh"></i> 刷新--%>
-<%--										</button>--%>
-<%--									</div>--%>
-<%--								</div>--%>
-<%--							</div>--%>
-<%--							<div class="box-tools pull-right">--%>
-<%--								<div class="has-feedback">--%>
-<%--									<input type="text" class="form-control input-sm"--%>
-<%--										placeholder="搜索"> <span--%>
-<%--										class="glyphicon glyphicon-search form-control-feedback"></span>--%>
-<%--								</div>--%>
-<%--							</div>--%>
-							<!--工具栏/-->
 
 						</div>
 						<!-- 数据表格 /-->
@@ -327,35 +219,29 @@
 					<div class="box-footer">
 						<div class="pull-left">
 							<div class="form-group form-inline">
-								总共2 页，共14 条数据。 每页 <select class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-								</select> 条
+								总共${pageInfo.pages}页，共${pageInfo.total} 条数据。 每页
+								<select class="form-control" id="changePageSize" onchange="changePageSize()">
+									<c:forEach begin="1" end="8" var="i">
+										<option <c:if test="${pageInfo.pageSize == i}">selected</c:if>>${i}</option>
+									</c:forEach>
+								</select> 条，当前第${pageInfo.pageNum}页。
 							</div>
 						</div>
 
 						<div class="box-tools pull-right">
 							<ul class="pagination">
-								<li><a href="#" aria-label="Previous">首页</a></li>
-								<li><a href="#">上一页</a></li>
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">下一页</a></li>
-								<li><a href="#" aria-label="Next">尾页</a></li>
+								<li><a href="${pageContext.request.contextPath}/backstage/message/findAll.do?page=1&size=${pageInfo.pageSize}" aria-label="Previous">首页</a></li>
+								<li><a href="${pageContext.request.contextPath}/backstage/message/findAll.do?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a></li>
+								<c:forEach begin="1" end="${pageInfo.pages}" var="pageNum">
+									<li><a href="${pageContext.request.contextPath}/backstage/message/findAll.do?page=${pageNum}&size=${pageInfo.pageSize}">${pageNum}</a></li>
+								</c:forEach>
+								<li><a href="${pageContext.request.contextPath}/backstage/message/findAll.do?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a></li>
+								<li><a href="${pageContext.request.contextPath}/backstage/message/findAll.do?page=${pageInfo.pages}&size=${pageInfo.pageSize}" aria-label="Next">尾页</a></li>
 							</ul>
 						</div>
 
 					</div>
 					<!-- /.box-footer-->
-
-
-
 				</div>
 
 			</section>
@@ -370,8 +256,8 @@
 			<div class="pull-right hidden-xs">
 				<b>Version</b> 1.0.0
 			</div>
-			<strong>Copyright &copy; 2020 <a
-				href="#">java ssm 07</a>.
+			<strong>Copyright &copy; 2020 CTGU<a
+					href="#">java ssm 07</a>.
 			</strong> All rights reserved.
 		</footer>
 		<!-- 底部导航 /-->
@@ -467,6 +353,12 @@
 	<script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script>
+		function changePageSize(){
+			var pageSize = $("#changePageSize").val();
+			location.href = "${pageContext.request.contextPath}/backstage/message/findAll.do?page=1&size="+pageSize;
+
+		}
+
 		$(document).ready(function() {
 			// 选择框
 			$(".select2").select2();

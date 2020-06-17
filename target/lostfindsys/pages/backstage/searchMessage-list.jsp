@@ -1,65 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-
 <head>
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>数据 - AdminLTE2定制版</title>
-<meta name="description" content="AdminLTE2定制版">
-<meta name="keywords" content="AdminLTE2定制版">
+<title>失物招领系统后台管理 | Message</title>
+
 
 <!-- Tell the browser to be responsive to screen width -->
 <meta
 	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
 	name="viewport">
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<script>
+		function deleteMess(id) {
+			//安全提示
+			if (confirm("您确定要删除该条信息吗？")){
+				location.href = "${pageContext.request.contextPath}/backstage/message/deleteMess.do?id="+id;
+			}
+		}
+	</script>
 
-
-
-
-
-
-
-
-<!-- jQuery 2.2.3 -->
-<!-- jQuery UI 1.11.4 -->
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<!-- Bootstrap 3.3.6 -->
-<!-- Morris.js charts -->
-<!-- Sparkline -->
-<!-- jvectormap -->
-<!-- jQuery Knob Chart -->
-<!-- daterangepicker -->
-<!-- datepicker -->
-<!-- Bootstrap WYSIHTML5 -->
-<!-- Slimscroll -->
-<!-- FastClick -->
-<!-- iCheck -->
-<!-- AdminLTE App -->
-<!-- 表格树 -->
-<!-- select2 -->
-<!-- bootstrap color picker -->
-<!-- bootstrap time picker -->
-<!--<script src="${pageContext.request.contextPath}/${pageContext.request.contextPath}/${pageContext.request.contextPath}/plugins/timepicker/bootstrap-timepicker.min.js"></script>-->
-<!-- Bootstrap WYSIHTML5 -->
-<!--bootstrap-markdown-->
-<!-- CK Editor -->
-<!-- InputMask -->
-<!-- DataTables -->
-<!-- ChartJS 1.0.1 -->
-<!-- FLOT CHARTS -->
-<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
-<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
-<!-- jQuery Knob -->
-<!-- Sparkline -->
-<!-- Morris.js charts -->
-<!-- Ion Slider -->
-<!-- Bootstrap slider -->
-<!-- 页面meta /-->
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
@@ -103,6 +69,8 @@
 	href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -110,171 +78,186 @@
 	<div class="wrapper">
 
 		<!-- 页面头部 -->
-		<!-- 页面头部 -->
-<header class="main-header">
-	<!-- Logo -->
-	<a href="all-admin-index.html" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
-		<span class="logo-mini"><b>数据</b></span> <!-- logo for regular state and mobile devices -->
-		<span class="logo-lg"><b>数据</b>后台管理</span>
-	</a>
-	<!-- Header Navbar: style can be found in header.less -->
-	<nav class="navbar navbar-static-top">
-		<!-- Sidebar toggle button-->
-		<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
-			role="button"> <span class="sr-only">Toggle navigation</span>
-		</a>
-
-		<div class="navbar-custom-menu">
-			<ul class="nav navbar-nav">
-
-				<li class="dropdown user user-menu"><a href="#"
-					class="dropdown-toggle" data-toggle="dropdown"> <img
-						src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
-						class="user-image" alt="User Image"> <span class="hidden-xs">
-							未登录
-					</span>
-
-				</a>
-					<ul class="dropdown-menu">
-						<!-- User image -->
-						<li class="user-header"><img
-							src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
-							class="img-circle" alt="User Image"></li>
-
-						<!-- Menu Footer-->
-						<li class="user-footer">
-							<div class="pull-left">
-								<a href="#" class="btn btn-default btn-flat">修改密码</a>
-							</div>
-							<div class="pull-right">
-								<a href="${pageContext.request.contextPath}/logout.do"
-									class="btn btn-default btn-flat">注销</a>
-							</div>
-						</li>
-					</ul></li>
-
-			</ul>
-		</div>
-	</nav>
-</header>
-<!-- 页面头部 /-->
+		<jsp:include page="header.jsp"></jsp:include>
 		<!-- 页面头部 /-->
-
 		<!-- 导航侧栏 -->
-		<aside class="main-sidebar">
-	<!-- sidebar: style can be found in sidebar.less -->
-	<section class="sidebar">
-		<!-- Sidebar user panel -->
-		<div class="user-panel">
-			<div class="pull-left image">
-				<img src="${pageContext.request.contextPath}/img/user2-160x160.jpg"
-					class="img-circle" alt="User Image">
-			</div>
-			<div class="pull-left info">
-				<p>
-					未登录
-				</p>
-				<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
-			</div>
-		</div>
-
-		<!-- sidebar menu: : style can be found in sidebar.less -->
-		<ul class="sidebar-menu">
-			<li class="header">菜单</li>
-			<li id="admin-index"><a
-				href="${pageContext.request.contextPath}/pages/mainlist.jsp"><i
-					class="fa fa-dashboard"></i> <span>首页</span></a></li>
-
-			<li class="treeview"><a href="#"> <i class="fa fa-cogs"></i>
-					<span>系统管理</span> <span class="pull-right-container"> <i
-						class="fa fa-angle-left pull-right"></i>
-				</span>
-			</a>
-				<ul class="treeview-menu">
-
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/user/findAll.do"> <i
-							class="fa fa-circle-o"></i> 用户管理
-					</a></li>
-					<li id="system-setting"><a href="${pageContext.request.contextPath}/role/findAll.do">
-							<i class="fa fa-circle-o"></i> 角色管理
-					</a></li>
-					<li id="system-setting"><a href="${pageContext.request.contextPath}/permission/findAll.do">
-							<i class="fa fa-circle-o"></i> 资源权限管理
-					</a></li>
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/sysLog/findAll.do"> <i
-							class="fa fa-circle-o"></i> 访问日志
-					</a></li>
-
-				</ul></li>
-			<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
-					<span>基础数据</span> <span class="pull-right-container"> <i
-						class="fa fa-angle-left pull-right"></i>
-				</span>
-			</a>
-				<ul class="treeview-menu">
-
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/product/findAll.do">
-							<i class="fa fa-circle-o"></i> 产品管理
-					</a></li>
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/order/findAll.do?page=1&pageSize=3">
-							<i class="fa fa-circle-o"></i> 订单管理
-					</a></li>
-
-				</ul></li>
-
-		</ul>
-	</section>
-	<!-- /.sidebar -->
-</aside>
+		<jsp:include page="aside.jsp"></jsp:include>
 		<!-- 导航侧栏 /-->
 
 		<!-- 内容区域 -->
+		<!-- @@master = admin-layout.html-->
+		<!-- @@block = content -->
+
 		<div class="content-wrapper">
-			<!-- Content Header (Page header) -->
+
+			<!-- 内容头部 -->
 			<section class="content-header">
-				<h1>登录失败 页面</h1>
-
+				<h1>
+					数据管理 <small>数据列表</small>
+				</h1>
 				<ol class="breadcrumb">
-					<li><a href="${pageContext.request.contextPath}/index.jsp"><i
-							class="fa fa-dashboard"></i> 首页</a></li>
-					<li class="active">登录失败</li>
+					<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+					<li><a href="#">数据管理</a></li>
+					<li class="active">数据列表</li>
 				</ol>
-
 			</section>
+			<!-- 内容头部 /-->
 
-			<!-- Main content -->
+			<!-- 正文区域 -->
 			<section class="content">
-				<div class="error-page">
-				
 
-					<div class="error-content">
-						
-						<p>
-							登录失败 , 你可以 <a href="${pageContext.request.contextPath}/login.jsp">返回到登录页面</a>
-							重新登录
-						</p>
-
-						
+				<!-- .box-body -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">列表</h3>
 					</div>
-					<!-- /.error-content -->
+
+					<div class="box-body">
+
+						<!-- 数据表格 -->
+						<div class="table-box">
+
+							<!--工具栏-->
+							<div class="pull-left">
+								<div class="form-group form-inline">
+									<div class="btn-group">
+										<button type="button" class="btn btn-default" title="新建"
+											onclick="location.href='${pageContext.request.contextPath}/pages/backstage/message-add.jsp'">
+											<i class="fa fa-file-o"></i> 新建
+										</button>
+										<button type="button" class="btn btn-default" title="删除">
+											<i class="fa fa-trash-o"></i> 删除
+										</button>
+										<button type="button" class="btn btn-default" title="刷新"
+												onclick="location.href='${pageContext.request.contextPath}/backstage/message/findAll.do'">
+											<i class="fa fa-refresh"></i> 刷新
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="box-tools pull-right form-group form-inline">
+								<form action="${pageContext.request.contextPath}/searchMessInBackstage.do" method="post">
+									<div class="has-feedback">
+										<input type="text" class="form-control input-sm" placeholder="搜索" name="keyword">
+										<button type="submit" class="btn btn-default">提交</button>
+									</div>
+								</form>
+
+							</div>
+							<!--工具栏/-->
+
+							<!--数据列表-->
+							<table id="dataList"
+								class="table table-bordered table-striped table-hover dataTable">
+								<thead>
+									<tr>
+										<th class="" style="padding-right: 0px;"><input
+											id="selall" type="checkbox" class="icheckbox_square-blue">
+										</th>
+										<th class="sorting_asc">ID</th>
+										<th class="sorting_desc">用户姓名</th>
+										<th class="sorting_asc sorting_asc_disabled">信息描述</th>
+										<th class="sorting_desc">酬金</th>
+										<th class="sorting_desc sorting_desc_disabled">发布日期</th>
+										<th class="sorting">信息类别</th>
+										<th class="text-center sorting">地址</th>
+										<th class="text-center sorting">状态</th>
+										<th class="text-center">操作</th>
+									</tr>
+								</thead>
+								<tbody>
+
+
+									<c:forEach items="${pageInfo.list}" var="message">
+
+										<tr>
+											<td><input name="ids" type="checkbox"></td>
+											<td>${message.id }</td>
+											<td>${message.username}</td>
+											<td>${message.description}</td>
+											<c:if test="${message.reward == 0 || message.reward == null}">
+												<td>无</td>
+											</c:if>
+											<c:if test="${message.reward > 0 }">
+												<td>${message.reward}</td>
+											</c:if>
+											<td>${message.createdate}</td>
+											<c:if test="${message.class_message == 0}">
+												<td class="text-center">失物信息</td>
+											</c:if>
+											<c:if test="${message.class_message == 1}">
+												<td class="text-center">招领信息</td>
+											</c:if>
+											<td>${message.address}</td>
+											<c:if test="${message.bastus == 0}">
+												<td class="text-center">未解决</td>
+											</c:if>
+											<c:if test="${message.bastus == 1}">
+												<td class="text-center">已解决</td>
+											</c:if>
+											<td class="text-center">
+												<a href="${pageContext.request.contextPath}/backstage/message/findByMessId.do?id=${message.id}" class="btn bg-olive btn-xs">编辑</a>
+												<a href="javascript:deleteMess(${message.id})" class="btn bg-olive btn-xs">删除</a>
+											</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+							<!--数据列表/-->
+
+						</div>
+						<!-- 数据表格 /-->
+
+
+					</div>
+					<!-- /.box-body -->
+
+					<!-- .box-footer-->
+					<div class="box-footer">
+						<div class="pull-left">
+							<div class="form-group form-inline">
+								总共${pageInfo.pages}页，共${pageInfo.total} 条数据。 每页
+								<select class="form-control" id="changePageSize" onchange="changePageSize()">
+									<c:forEach begin="1" end="8" var="i">
+										<option <c:if test="${pageInfo.pageSize == i}">selected</c:if>>${i}</option>
+									</c:forEach>
+								</select> 条，当前第${pageInfo.pageNum}页。
+							</div>
+						</div>
+
+						<div class="box-tools pull-right">
+							<ul class="pagination">
+								<li><a href="${pageContext.request.contextPath}/backstage/message/findAll.do?page=1&size=${pageInfo.pageSize}" aria-label="Previous">首页</a></li>
+								<li><a href="${pageContext.request.contextPath}/backstage/message/findAll.do?page=${pageInfo.pageNum-1}&size=${pageInfo.pageSize}">上一页</a></li>
+								<c:forEach begin="1" end="${pageInfo.pages}" var="pageNum">
+									<li><a href="${pageContext.request.contextPath}/backstage/message/findAll.do?page=${pageNum}&size=${pageInfo.pageSize}">${pageNum}</a></li>
+								</c:forEach>
+								<li><a href="${pageContext.request.contextPath}/backstage/message/findAll.do?page=${pageInfo.pageNum+1}&size=${pageInfo.pageSize}">下一页</a></li>
+								<li><a href="${pageContext.request.contextPath}/backstage/message/findAll.do?page=${pageInfo.pages}&size=${pageInfo.pageSize}" aria-label="Next">尾页</a></li>
+							</ul>
+						</div>
+
+					</div>
+					<!-- /.box-footer-->
+
+
+
 				</div>
-				<!-- /.error-page -->
+
 			</section>
-			<!-- /.content -->
+			<!-- 正文区域 /-->
+
 		</div>
+		<!-- @@close -->
 		<!-- 内容区域 /-->
 
 		<!-- 底部导航 -->
 		<footer class="main-footer">
 			<div class="pull-right hidden-xs">
-				<b>Version</b> 1.0.8
+				<b>Version</b> 1.0.0
 			</div>
-			<strong>Copyright &copy; 2014-2017 <a
-				href="http://www.itcast.cn">研究院研发部</a>.
+			<strong>Copyright &copy; 2020 CTGU<a
+					href="#">java ssm 07</a>.
 			</strong> All rights reserved.
 		</footer>
 		<!-- 底部导航 /-->
@@ -365,7 +348,17 @@
 		src="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script>
+		function changePageSize(){
+			var pageSize = $("#changePageSize").val();
+			location.href = "${pageContext.request.contextPath}/backstage/message/findAll.do?page=1&size="+pageSize;
+
+		}
+
 		$(document).ready(function() {
 			// 选择框
 			$(".select2").select2();
@@ -386,7 +379,25 @@
 		}
 
 		$(document).ready(function() {
-			setSidebarActive("admin-500");
+
+			// 激活导航位置
+			setSidebarActive("admin-datalist");
+
+			// 列表按钮 
+			$("#dataList td input[type='checkbox']").iCheck({
+				checkboxClass : 'icheckbox_square-blue',
+				increaseArea : '20%'
+			});
+			// 全选操作 
+			$("#selall").click(function() {
+				var clicks = $(this).is(':checked');
+				if (!clicks) {
+					$("#dataList td input[type='checkbox']").iCheck("uncheck");
+				} else {
+					$("#dataList td input[type='checkbox']").iCheck("check");
+				}
+				$(this).data("clicks", !clicks);
+			});
 		});
 	</script>
 </body>

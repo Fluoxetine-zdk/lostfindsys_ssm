@@ -10,22 +10,17 @@ import java.util.List;
 public interface IUserDao {
 
     @Select("select * from user a,userclass b where username = #{username} and a.classno = b.classno")
-//    @Results({
-//            @Result(id = true, property = "username", column = "username"),
-//            @Result(property = "password", column = "password"),
-//            @Result(property = "sex", column = "sex"),
-//            @Result(property = "mobile", column = "mobile"),
-//            @Result(property = "classname", column = "classname"),
-//            @Result(property = "mobile", column = "mobile")
-//    })
-    public UserInfo findByUsername(String username) throws Exception;
+    UserInfo findByUsername(String username);
 
     @Select("select * from user")
-    public List<UserInfo> findAll() throws Exception;
+    List<UserInfo> findAll();
 
     @Insert("insert into user (username,password,mobile) values (#{username},#{password},#{mobile})")
-    public void addUser(UserInfo user) throws Exception;
+    void addUser(UserInfo user);
 
-    @Update("update user set password = #{password},mobile = #{mobile},classno = #{classno},sex = #{sex},status = #{status} where username = #{username} ")
-    public void updateUser(UserInfo user) throws Exception;
+    @Update("update user set password = #{password},mobile = #{mobile},email = #{email},classno = #{classno},sex = #{sex},status = #{status} where username = #{username} ")
+    void updateUser(UserInfo user);
+
+    @Update("update user set password=#{password},mobile=#{mobile},email=#{email},sex = #{sex}, where username = #{username} ")
+    void updateByUser(UserInfo user);
 }

@@ -1,5 +1,6 @@
 package ctgu.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import ctgu.dao.IMessageDao;
 import ctgu.entity.Message;
 import ctgu.service.IMessService;
@@ -16,7 +17,8 @@ public class MessServiceImpl implements IMessService {
     private IMessageDao messageDao;
 
     @Override
-    public List<Message> findAll() throws Exception {
+    public List<Message> findAll(int page, int size) throws Exception {
+        PageHelper.startPage(page,size);
         return messageDao.findAll();
     }
 
@@ -34,5 +36,29 @@ public class MessServiceImpl implements IMessService {
     public void updateMess(Message message) {
         messageDao.updateMess(message);
     }
+
+    @Override
+    public List<Message> findByClassMess(int classmess, int page, int size) {
+        PageHelper.startPage(page,size);
+        return messageDao.findByClassmess(classmess);
+    }
+
+    @Override
+    public void deleteMess(int id) {
+        messageDao.deleteMess(id);
+    }
+
+    @Override
+    public List<Message> findSomeMessByClassmess(int classmess, int page, int size) {
+        PageHelper.startPage(page,size);
+        return messageDao.findByClassmess(classmess);
+    }
+
+    @Override
+    public List<Message> searchMess(int page, int size, String keyword) {
+        PageHelper.startPage(page,size);
+        return messageDao.searchByDescription(keyword);
+    }
+
 
 }

@@ -14,7 +14,31 @@
 <meta
 	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
 	name="viewport">
+<script>
 
+	function checkform(){
+		var username = document.getElementById("username")
+		var address = document.getElementById("address")
+		var description = document.getElementById("description")
+		if (username.value ==""){
+			alert("请填写用户名")
+			return (false)
+		}
+		if (address.value ==""){
+			alert("请填写 丢失/捡到 的地址")
+			return (false)
+		}
+		if (description.value ==""){
+			alert("请填写信息描述")
+			return (false)
+		}
+		if ((description,username,address).value !=""){
+			alert("发布成功)
+			return
+		}
+	}
+
+</script>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
@@ -85,14 +109,13 @@
 				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
 						class="fa fa-dashboard"></i> 首页</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/message/findAll.do">信息管理</a></li>
+					href="${pageContext.request.contextPath}/backstage/message/findAll.do">信息管理</a></li>
 				<li class="active">添加信息</li>
 			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
-			<form action="${pageContext.request.contextPath}/message/addMess.do"
-				method="post">
+			<form action="${pageContext.request.contextPath}/backstage/message/addMess.do" method="post"  onclick="return checkform()">
 				<!-- 正文区域 -->
 				<section class="content"> <!--产品信息-->
 
@@ -103,7 +126,7 @@
 
 						<div class="col-md-2 title">用户账号</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="username"
+							<input type="text" class="form-control" id="username" name="username"
 								placeholder="账号" value="">
 						</div>
 <%--						<div class="col-md-2 title">发布时间</div>--%>
@@ -120,13 +143,13 @@
 
 						<div class="col-md-2 title">丢失地点</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="address"
+							<input type="text" class="form-control" id="adderss" name="address"
 								placeholder="详细地址" value="">
 						</div>
 
 						<div class="col-md-2 title">酬金</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" placeholder="金额"
+							<input type="text" class="form-control" placeholder="金额" id="reward"
 								name="reward" value="">
 						</div>
 
@@ -141,7 +164,7 @@
 
 						<div class="col-md-2 title rowHeight2x">信息详情</div>
 						<div class="col-md-10 data rowHeight2x">
-							<textarea class="form-control" rows="3" placeholder="信息详情"
+							<textarea class="form-control" rows="3" placeholder="信息详情" id="description"
 								name="description"></textarea>
 						</div>
 
@@ -161,12 +184,13 @@
 
 		<!-- 底部导航 -->
 		<footer class="main-footer">
-		<div class="pull-right hidden-xs">
-			<b>Version</b> 1.0.8
-		</div>
-		<strong>Copyright &copy; 2014-2017 <a
-			href="http://www.itcast.cn">研究院研发部</a>.
-		</strong> All rights reserved. </footer>
+			<div class="pull-right hidden-xs">
+				<b>Version</b> 1.0.0
+			</div>
+			<strong>Copyright &copy; 2020 CTGU<a
+					href="#">java ssm 07</a>.
+			</strong> All rights reserved.
+		</footer>
 		<!-- 底部导航 /-->
 
 	</div>

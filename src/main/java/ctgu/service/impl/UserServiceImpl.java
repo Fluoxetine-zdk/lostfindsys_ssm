@@ -1,5 +1,6 @@
 package ctgu.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import ctgu.dao.IUserDao;
 import ctgu.entity.UserInfo;
 import ctgu.service.IUserService;
@@ -43,7 +44,8 @@ public class UserServiceImpl implements IUserService {
 
 
     @Override
-    public List<UserInfo> findAll() throws Exception {
+    public List<UserInfo> findAll(int page, int size) throws Exception {
+        PageHelper.startPage(page,size);
         return userdao.findAll();
     }
 
@@ -60,6 +62,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void updateUser(UserInfo user) throws Exception {
         userdao.updateUser(user);
+    }
+
+    @Override
+    public void updateByUser(UserInfo user) throws Exception {
+        userdao.updateByUser(user);
     }
 
 }

@@ -1,6 +1,5 @@
 package ctgu.entity;
 
-import java.sql.Date;
 
 public class Message {
     private int id;
@@ -11,6 +10,7 @@ public class Message {
     private int bastus;
     private int reward;
     private String createdate;
+    private String imgpath;
 
     @Override
     public String toString() {
@@ -24,6 +24,14 @@ public class Message {
                 ", reward=" + reward +
                 ", createdate='" + createdate + '\'' +
                 '}';
+    }
+
+    public String getImgpath() {
+        return imgpath;
+    }
+
+    public void setImgpath(String imgpath) {
+        this.imgpath = imgpath;
     }
 
     public String getCreatedate() {

@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>失物招领系统后台管理 - 添加用户</title>
+<title>失物招领系统后台管理 | AddUser</title>
 
 
 <!-- Tell the browser to be responsive to screen width -->
@@ -84,16 +85,16 @@
 				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
 						class="fa fa-dashboard"></i> 首页</a></li>
 				<li><a
-					href="${pageContext.request.contextPath}/user/findAll.do">用户管理</a></li>
+					href="${pageContext.request.contextPath}/backstage/user/findAll.do">用户管理</a></li>
 				<li class="active">用户表单</li>
 			</ol>
 			</section>
 			<!-- 内容头部 /-->
 
-			<form action="${pageContext.request.contextPath}/user/addUser.do"
+			<form action="${pageContext.request.contextPath}/backstage/user/addUser.do"
 				method="post">
 				<!-- 正文区域 -->
-				<section class="content"> <!--产品信息-->
+				<section class="content">
 
 				<div class="panel panel-default">
 					<div class="panel-heading">用户信息</div>
@@ -114,6 +115,11 @@
 <%--							<input type="text" class="form-control" name="email"--%>
 <%--								placeholder="邮箱" value="">--%>
 <%--						</div>--%>
+						<div class="col-md-2 title">性别</div>
+						<div class="col-md-4 data">
+							<label><input type="radio" name="sex" value="男" >男</label>
+							<label><input type="radio" name="sex" value="女" >女</label>
+						</div>
 						<div class="col-md-2 title">联系电话</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" name="mobile"
@@ -123,8 +129,8 @@
 						<div class="col-md-4 data">
 							<select class="form-control select2" style="width: 100%"
 								name="status">
-								<option value="0" selected="selected">关闭</option>
-								<option value="1">开启</option>
+								<option value="0" selected="selected">禁用</option>
+								<option value="1">可用</option>
 							</select>
 						</div>
 						<div class="col-md-2 title">权限</div>
@@ -155,7 +161,7 @@
 			<div class="pull-right hidden-xs">
 				<b>Version</b> 1.0.0
 			</div>
-			<strong>Copyright &copy; 2020 <a
+			<strong>Copyright &copy; 2020 CTGU<a
 					href="#">java ssm 07</a>.
 			</strong> All rights reserved.
 		</footer>
