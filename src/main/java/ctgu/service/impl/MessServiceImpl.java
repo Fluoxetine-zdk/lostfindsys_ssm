@@ -60,5 +60,11 @@ public class MessServiceImpl implements IMessService {
         return messageDao.searchByDescription(keyword);
     }
 
+    @Override
+    public List<Message> findUserOwnMess(String username, int page, int size) {
+        PageHelper.startPage(page,size);
+        return messageDao.findUserOwnMess(username);
+    }
+
 
 }

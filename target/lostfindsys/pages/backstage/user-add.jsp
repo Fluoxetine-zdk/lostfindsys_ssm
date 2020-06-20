@@ -60,6 +60,23 @@
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+
+	<script type="text/javascript">
+		function beforeSubmit(form){
+			if(form.username.value===''){
+				alert('用户名不能为空！');
+				form.username.focus();
+				return false;
+			}
+			if(form.password.value===''){
+				alert('密码不能为空！');
+				form.password.focus();
+				return false;
+			}
+			return true;
+		}
+	</script>
+
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -91,8 +108,7 @@
 			</section>
 			<!-- 内容头部 /-->
 
-			<form action="${pageContext.request.contextPath}/backstage/user/addUser.do"
-				method="post">
+			<form action="${pageContext.request.contextPath}/backstage/user/addUser.do" method="post" name="form" onSubmit="return beforeSubmit(this);">
 				<!-- 正文区域 -->
 				<section class="content">
 
@@ -110,11 +126,11 @@
 							<input type="password" class="form-control" name="password"
 								placeholder="密码" value="">
 						</div>
-<%--						<div class="col-md-2 title">邮箱</div>--%>
-<%--						<div class="col-md-4 data">--%>
-<%--							<input type="text" class="form-control" name="email"--%>
-<%--								placeholder="邮箱" value="">--%>
-<%--						</div>--%>
+						<div class="col-md-2 title">邮箱</div>
+						<div class="col-md-4 data">
+							<input type="text" class="form-control" name="email"
+								placeholder="邮箱" value="">
+						</div>
 						<div class="col-md-2 title">性别</div>
 						<div class="col-md-4 data">
 							<label><input type="radio" name="sex" value="男" >男</label>
@@ -129,8 +145,8 @@
 						<div class="col-md-4 data">
 							<select class="form-control select2" style="width: 100%"
 								name="status">
-								<option value="0" selected="selected">禁用</option>
 								<option value="1">可用</option>
+								<option value="0" >禁用</option>
 							</select>
 						</div>
 						<div class="col-md-2 title">权限</div>

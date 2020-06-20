@@ -11,18 +11,9 @@
 <head>
     <title>Title</title>
     <meta http-equiv="refresh" content="0; url=findSomeMess.do">
-
-<%--    <a href="/user/register">注册测试</a>--%>
-<%--    <h2>注册测试</h2>--%>
-<%--    <form action="/user/register" method="post">--%>
-<%--        用户名<input type="text" id="username" name="username"><br>--%>
-<%--        密码<input type="text" id="password" name="password"><br>--%>
-<%--        电话<input type="text" id="mobile" name="mobile"><br>--%>
-<%--&lt;%&ndash;        <input type="hidden" id="classno" name="classno" value="0">&ndash;%&gt;--%>
-<%--        <input type="submit" value="提交">--%>
-<%--    </form>--%>
+    <!-- 服务器启动页面-->
 </head>
 <body>
-<a href="/message/findAll.do">跳转到信息列表</a>
+
 </body>
 </html>

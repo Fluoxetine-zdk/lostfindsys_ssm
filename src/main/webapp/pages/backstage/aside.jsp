@@ -38,10 +38,6 @@
 						href="${pageContext.request.contextPath}/backstage/user/findAll.do?page=1&size=5"> <i
 							class="fa fa-circle-o"></i> 用户管理
 					</a></li>
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/sysLog/findAll.do"> <i
-							class="fa fa-circle-o"></i> 访问日志
-					</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-cube"></i>
 					<span>基础数据</span> <span class="pull-right-container"> <i
@@ -53,10 +49,6 @@
 					<li id="system-setting"><a
 						href="${pageContext.request.contextPath}/backstage/message/findAll.do?page=1&size=5">
 							<i class="fa fa-circle-o"></i> 信息管理
-					</a></li>
-					<li id="system-setting"><a
-						href="${pageContext.request.contextPath}/orders/findAll.do"> <i
-							class="fa fa-circle-o"></i> 留言管理
 					</a></li>
 
 				</ul></li>

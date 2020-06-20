@@ -10,4 +10,6 @@ public interface ILeaveMessService {
     List<LeaveMessage> findAllLeaveMess(int id, int page, int size);
 
     void deleteLeaveMess(int id);
+
+    void addLeaveMessage(LeaveMessage leaveMessage);
 }

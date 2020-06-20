@@ -199,7 +199,6 @@
 											</c:if>
 											<td class="text-center">
 												<a href="${pageContext.request.contextPath}/backstage/message/findByMessId.do?id=${message.id}" class="btn bg-olive btn-xs">编辑</a>
-												<a href="${pageContext.request.contextPath}/backstage/message/findAllLeaveMess.do?id=${message.id}&page=1&size=5" class="btn bg-olive btn-xs">查看留言</a>
 												<a href="javascript:deleteMess(${message.id})" class="btn bg-olive btn-xs">删除</a>
 											</td>
 										</tr>

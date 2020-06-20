@@ -62,10 +62,8 @@ public class MessageController {
         ModelAndView mv = new ModelAndView();
         Message message = messService.findByMessId(id);
         UserInfo user = userService.findByUsername(message.getUsername());
-        List<LeaveMessage> allLeaveMessList = leaveMessService.findAllLeaveMess(id);
         mv.addObject("message",message);
         mv.addObject("user",user);
-        mv.addObject("allLeaveMessList",allLeaveMessList);
         mv.setViewName("user/messageDetails");
         return mv;
     }
@@ -75,10 +73,8 @@ public class MessageController {
         ModelAndView mv = new ModelAndView();
         Message message = messService.findByMessId(id);
         UserInfo user = userService.findByUsername(message.getUsername());
-        List<LeaveMessage> allLeaveMessList = leaveMessService.findAllLeaveMess(id);
         mv.addObject("message",message);
         mv.addObject("user",user);
-        mv.addObject("allLeaveMessList",allLeaveMessList);
         mv.setViewName("messageDetails");
         return mv;
     }
@@ -107,6 +103,16 @@ public class MessageController {
         if(classmess == 1){
             mv.setViewName("findMore");
         }
+        return mv;
+    }
+
+    @RequestMapping("/userOwnMess.do")
+    public ModelAndView findUserOwnMess(String username,@RequestParam(name = "page",required = true,defaultValue = "1") int page,@RequestParam(name = "size",required = true,defaultValue = "10") int size){
+        ModelAndView mv = new ModelAndView();
+        List<Message> messageList = messService.findUserOwnMess(username,page,size);
+        PageInfo pageInfo = new PageInfo(messageList);
+        mv.addObject("pageInfo",pageInfo);
+        mv.setViewName("user/personalCenter-Mess");
         return mv;
     }
 
@@ -219,31 +225,6 @@ public class MessageController {
         return mv;
     }
 
-    @RequestMapping("/addImg.do")
-    public void addImg(HttpServletRequest request,@RequestParam(value="file")MultipartFile pictureFile) throws Exception {
 
-        //这个RequestParam(value="file")的是我们在jsp的name=“file”
-        // 使用UUID给图片重命名，并去掉四个“-”
-        String name = UUID.randomUUID().toString().replaceAll("-", "");
-        // 获取文件的扩展名
-        String ext = FilenameUtils.getExtension(pictureFile
-                .getOriginalFilename());
-        // 设置图片上传路径
-        String url = request.getSession().getServletContext()
-                .getRealPath("/img");
-        System.out.println(url);
-        // 以绝对路径保存重名命后的图片
-        pictureFile.transferTo(new File(url + "/" + name + "." + ext));
-        // 把图片存储路径保存到数据库
-
-
-
-
-
-
-
-
-
-    }
 
 }

@@ -160,10 +160,10 @@
                     <!-- Blog Post -->
                     <div class="card mb-4">
                         <c:if test="${ not empty message.imgpath }">
-                            <img class="card-img-top" src="/img/${message.imgpath}" >
+                            <img class="card-img-top" src="/img/${message.imgpath}" style="height: 400px;width: 600px">
                         </c:if>
                         <c:if test="${empty message.imgpath }">
-                            <img class="card-img-top" src="/img/test.jpg" >
+                            <img class="card-img-top" src="/img/noimg.png" style="height: 300px;width: 300px">
                         </c:if>
                         <div class="card-body">
                             <h2 class="card-title">发布人姓名：${message.username}</h2>

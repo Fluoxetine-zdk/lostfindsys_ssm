@@ -64,8 +64,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">登录<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">注册</a></li>
+                <li><a href="${pageContext.request.contextPath}/login.jsp">登录<span class="sr-only">(current)</span></a></li>
+                <li><a href="${pageContext.request.contextPath}/pages/register.jsp">注册</a></li>
             </ul>
             <form class="navbar-form navbar-right" action="${pageContext.request.contextPath}/searchMess.do" method="post">
                 <div class="form-group">
@@ -98,26 +98,23 @@
                                                         <legend>信息详情</legend>
                                                     </div>
                                                     <div class="col-md-10 col-sm-10 col-xs-10 text-left" style="margin-bottom: 20px;">
-                                                        <h5> 物品描述:${message.description}</h5>
+                                                        <h5> 物品描述: ${message.description}</h5>
                                                     </div>
                                                     <div class="col-md-10 col-sm-10 col-xs-10 text-left" style="margin-bottom: 20px;">
-                                                        <h5> 拾取地点:${message.address}</h5>
+                                                        <h5> 拾取地点: ${message.address}</h5>
                                                     </div>
 
                                                     <div class="col-md-10 col-sm-10 col-xs-10 text-left" style="margin-bottom: 20px;">
-                                                        <h5> 拾取人姓名:${message.username}</h5>
+                                                        <h5> 发布用户: ${message.username}</h5>
                                                     </div>
                                                     <div class="col-md-10 col-sm-10 col-xs-10 text-left" style="margin-bottom: 20px;">
-                                                        <h5> 拾取人联系方式:${user.mobile}</h5>
+                                                        <h5> 联系方式:   登录后即可查看</h5>
                                                     </div>
                                                     <c:if test="${message.class_message == 0}">
                                                         <div class="col-md-10 col-sm-10 col-xs-10 text-left" style="margin-bottom: 20px;">
-                                                            <h5> 酬金:${message.reward}</h5>
+                                                            <h5> 酬金: ${message.reward}</h5>
                                                         </div>
                                                     </c:if>
-                                                    <div class="col-md-10 col-sm-10 col-xs-10 text-left" style="margin-bottom: 20px;">
-                                                        <h5> 物品图片:</h5>
-                                                    </div>
                                                 </table>
                                             </div>
                                         </form>
@@ -133,38 +130,23 @@
 
                     <div id="leave">
                         <table class="table" style="margin-top: 30px;">
-                            <div class="text-left"><h4>留言列表</h4><h6>登录后即可留言</h6></div>
+                            <div class="text-left"><h4>物品图片 ：</h4></div>
                             <colgroup>
                                 <col width="5">
                                 <col width="300">
                                 <col width="10">
                             </colgroup>
                             <tbody>
-                            <c:if test="${allLeaveMessList.size() == 0}">
-                                <tr>
-                                    <td>空  :</td>
-                                    <td>空</td>
-                                    <td>空</td>
-                                </tr>
-                            </c:if>
-                            <c:forEach items="${allLeaveMessList}" var="leaveMess">
 
-                                <tr>
-                                    <td>${leaveMess.username}  :</td>
-                                    <td>${leaveMess.leavemessage}</td>
-                                    <td>${leaveMess.leavetime}</td>
-                                </tr>
-                            </c:forEach>
+                            <c:if test="${ not empty message.imgpath }">
+                                <img class="card-img-top" src="/img/${message.imgpath}" style="height: 200px;width: 300px" >
+                            </c:if>
+                            <c:if test="${empty message.imgpath }">
+                                <img class="card-img-top" src="/img/noimg.png"  style="height: 300px;width: 300px">
+                            </c:if>
                             </tbody>
                         </table>
-<%--                        <form role="form">--%>
-<%--                            <div class="form-group text-left">--%>
-<%--                                <footer><cite title="Source Title">请发布留言</cite></footer>--%>
-<%--                                <textarea class="form-control" rows="3"></textarea>--%>
-<%--                                <button class="btn btn-default" type="submit" href="#">发布</button>--%>
-<%--                            </div>--%>
-<%--                        </form>--%>
-
+                    </div>
 
 
                         <!-- Comment END -->

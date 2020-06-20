@@ -147,8 +147,7 @@
             </div>
             <div class="col-md-4 text-center">邮箱地址</div>
             <div class="col-md-8 data">
-                <input type="text" class="form-control" name="mobile"
-                       placeholder="邮箱地址" value="">
+                <input type="text" class="form-control" name="email" placeholder="邮箱地址" value="${user.email}">
             </div>
 
         </div>
@@ -161,6 +160,7 @@
         <button type="button" class="btn bg-default"
                 onclick="history.back(-1);">返回</button>
     </div>
+    </form>
 </div>
 </div>
 <!-- /.row -->

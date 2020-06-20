@@ -83,7 +83,7 @@
           <security:authentication property="principal.username"></security:authentication>
           </a>
         </li>
-        <li><a href="${pageContext.request.contextPath}/">发布信息</a></li>
+        <li><a href="${pageContext.request.contextPath}/pages/user/releaseMess.jsp">发布信息</a></li>
         <li><a href="${pageContext.request.contextPath}/logout.do">注销</a></li>
       </ul>
     </div>
@@ -112,7 +112,7 @@
     <div class="col-lg-3 mb-4">
       <div class="list-group">
         <a class="list-group-item" >个人信息查看</a>
-        <a href="${pageContext.request.contextPath}/user/personalCenter-Mess.jsp" class="list-group-item">发布信息查看</a>
+        <a href="${pageContext.request.contextPath}/userOwnMess.do?username=${user.username}" class="list-group-item">发布信息查看</a>
       </div>
     </div>
     <!-- Content Column -->

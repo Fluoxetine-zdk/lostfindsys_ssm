@@ -33,4 +33,11 @@ public class LeaveMessServiceImpl implements ILeaveMessService {
     public void deleteLeaveMess(int id) {
         leaveMessDao.deleteLeaveMess(id);
     }
+
+    @Override
+    public void addLeaveMessage(LeaveMessage leaveMessage) {
+        leaveMessDao.addLeaveMessage(leaveMessage);
+    }
+
+
 }

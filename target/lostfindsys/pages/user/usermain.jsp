@@ -38,10 +38,7 @@
           href="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.theme.default.css">
+
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/select2/select2.css">
     <link rel="stylesheet"
@@ -68,6 +65,7 @@
             padding:0;
             background-color: snow;
         }
+
     </style>
 </head>
 
@@ -161,7 +159,7 @@
                 <h3 class="card-header"><p class="text-center">失物信息</p></h3>
                 <footer><cite title="Source Title">Lost--------------</cite></footer>
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table-responsive wrapper">
                         <table class="table table-bordered ">
                             <thead>
                             <tr>
@@ -190,7 +188,7 @@
             <div class="col-lg-5" style="margin-left: 30px;margin-right: 30px">
                 <h3 class="card-header"><p class="text-center">招领信息</p></h3>
                 <footer><cite title="Source Title">Found--------------</cite></footer>
-                <div class="card-body">
+                <div class="card-body ">
                     <div class="table-responsive">
                         <table class="table table-bordered ">
                             <thead>

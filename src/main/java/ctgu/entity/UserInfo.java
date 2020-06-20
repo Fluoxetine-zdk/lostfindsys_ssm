@@ -43,6 +43,17 @@ public class UserInfo implements Serializable {
         return classno;
     }
 
+    public void setClassno(int classno) {
+        this.classno = classno;
+    }
+
+    public void setClassname(String classname) {
+        this.classname = classname;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public String getClassname() {
         return classname;

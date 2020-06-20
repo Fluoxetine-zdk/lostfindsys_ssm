@@ -23,6 +23,21 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/iCheck/square/blue.css">
 
+	<script type="text/javascript">
+		function beforeSubmit(form){
+			if(form.username.value===''){
+				alert('用户名不能为空！');
+				form.username.focus();
+				return false;
+			}
+			if(form.password.value===''){
+				alert('密码不能为空！');
+				form.password.focus();
+				return false;
+			}
+			return true;
+		}
+	</script>
 
 </head>
 
@@ -54,7 +69,7 @@
 		<div class="login-box-body">
 			<p class="login-box-msg">登录</p>
 
-			<form action="${pageContext.request.contextPath}/login.do" method="post">
+			<form action="${pageContext.request.contextPath}/login.do" method="post" name="form" onSubmit="return beforeSubmit(this);">
 				<div class="form-group has-feedback">
 					<input type="text" name="username" class="form-control"
 						placeholder="用户名"> <span

@@ -102,7 +102,8 @@
 
 						<div class="col-md-2 title">用户账号</div>
 						<div class="col-md-4 data">
-							<input type="text" disabled class="form-control" name="username" value="${user.username}">
+							<input type="text" disabled class="form-control" value="${user.username}">
+							<input type="hidden" class="form-control" name="username" value="${user.username}">
 						</div>
 						<div class="col-md-2 title">密码</div>
 						<div class="col-md-4 data">
@@ -125,7 +126,7 @@
 						</div>
 						<div class="col-md-2 title">邮箱</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" name="mobile" value="${user.email}">
+							<input type="text" class="form-control" name="email" value="${user.email}">
 						</div>
 						<div class="col-md-2 title">用户状态</div>
 						<div class="col-md-4 data">

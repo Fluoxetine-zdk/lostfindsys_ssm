@@ -2,6 +2,7 @@ package ctgu.dao;
 
 import ctgu.entity.LeaveMessage;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -14,4 +15,7 @@ public interface ILeaveMessDao {
 
     @Delete("delete from leavemess where id = #{id}")
     void deleteLeaveMess(int id);
+
+    @Insert("insert into leavemess (username,leavemessage,msgid) vlaues(#{user},#{leavemessage},#{msgid})")
+    void addLeaveMessage(LeaveMessage leaveMessage);
 }

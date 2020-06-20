@@ -20,4 +20,6 @@ public interface IMessService {
     List<Message> findSomeMessByClassmess(int classmess,int page,int size);
 
     List<Message> searchMess(int page, int size, String keyword);
+
+    List<Message> findUserOwnMess(String username, int page, int size);
 }

@@ -131,13 +131,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="box-tools pull-right">
-							<div class="has-feedback">
-								<input type="text" class="form-control input-sm"
-									   placeholder="搜索"> <span
-									class="glyphicon glyphicon-search form-control-feedback"></span>
-							</div>
-						</div>
+
 						<!--工具栏/-->
 
 						<!--数据列表-->
@@ -151,6 +145,7 @@
 								<th class="sorting_desc">用户名</th>
 								<th class="sorting_asc sorting_asc_disabled">性别</th>
 								<th class="sorting_desc sorting_desc_disabled">联系电话</th>
+								<th class="sorting_desc sorting_desc_disabled">邮箱</th>
 								<th class="sorting">状态</th>
 								<th class="sorting">权限</th>
 								<th class="text-center">操作</th>
@@ -163,6 +158,7 @@
 									<td>${user.username }</td>
 									<td>${user.sex}</td>
 									<td>${user.mobile }</td>
+									<td>${user.email}</td>
 									<c:if test="${user.status == 1}">
 										<td class="">可用</td>
 									</c:if>

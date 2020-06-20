@@ -31,4 +31,7 @@ public interface IMessageDao {
 
     @Select("select * from message where description like CONCAT('%',#{keyword},'%')  ")
     List<Message> searchByDescription(String keyword);
+
+    @Select("select * from message where username = #{username} ORDER BY createdate DESC")
+    List<Message> findUserOwnMess(String username);
 }

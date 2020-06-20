@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>后台管理系统 | Register </title>
+    <title>失物招领网 | Register </title>
 
     <meta
             content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
@@ -24,7 +24,21 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/iCheck/square/blue.css">
 
-
+    <script type="text/javascript">
+        function beforeSubmit(form){
+            if(form.username.value===''){
+                alert('用户名不能为空！');
+                form.username.focus();
+                return false;
+            }
+            if(form.password.value===''){
+                alert('密码不能为空！');
+                form.password.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
 
 </head>
 
@@ -58,7 +72,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">注册</p>
 
-        <form action="${pageContext.request.contextPath}/register.do" method="post">
+        <form action="${pageContext.request.contextPath}/register.do" name="form" method="post" onSubmit="return beforeSubmit(this);">
             <div class="form-group has-feedback">
                 <input type="text" name="username" class="form-control" placeholder="*用户名">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>

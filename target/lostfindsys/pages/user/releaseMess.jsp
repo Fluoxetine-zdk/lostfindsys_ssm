@@ -44,10 +44,31 @@
             margin: 0 auto;
         }
     </style>
-    <script>
+
+
+    <script type="text/javascript">
         function formReset()
         {
             document.getElementById("frm1").reset();
+
+        }
+        function beforeSubmit(form){
+            if(form.address.value===''){
+                alert('地点不能为空！');
+                form.address.focus();
+                return false;
+            }
+            if(form.description.value===''){
+                alert('物品描述不能为空！');
+                form.description.focus();
+                return false;
+            }
+            if(form.username.value===''){
+                alert('姓名不能为空！');
+                form.username.focus();
+                return false;
+            }
+            return true;
         }
     </script>
 
@@ -71,7 +92,6 @@
                 </a>
                 </li>
                 <li><a href="${pageContext.request.contextPath}/pages/user/releaseMess.jsp">发布信息</a></li>
-                <li><a href="${pageContext.request.contextPath}/pages/user/personalCenter1.jsp">个人中心</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout.do">注销</a></li>
 
             </ul>
@@ -90,18 +110,18 @@
         <li><a href="${pageContext.request.contextPath}/pages/user/releaseMess.jsp"><i class="fa fa-dashboard"></i> 首页</a></li>
         <li class="breadcrumb-item active">信息发布</li>
     </ol>
-    <form action="${pageContext.request.contextPath}/releaseMess.do" method="post" id="frm1" enctype="multipart/form-data">
+    <form action="${pageContext.request.contextPath}/releaseMess.do" method="post" id="frm1" name="form" enctype="multipart/form-data" onSubmit="return beforeSubmit(this);">
         <!-- 正文区域 -->
-        <section class="content">
+
 
             <div class="panel panel-default">
                 <div class="row data-type">
                     <div class="col-md-2 title">用户账号</div>
                     <div class="col-md-4 data">
                         <input type="text" disabled class="form-control"
-                               value="<security:authentication property="principal.username"></security:authentication>" placeholder="账号" >
+                               value="<security:authentication property="principal.username"></security:authentication>">
                         <input type="hidden"  class="form-control" name="username"
-                               value="<security:authentication property="principal.username"></security:authentication>" placeholder="账号" >
+                               value="<security:authentication property="principal.username"></security:authentication>">
                     </div>
                     <div class="col-md-2 title">丢失地点</div>
                     <div class="col-md-4 data">
@@ -112,20 +132,20 @@
                     <div class="col-md-2 title">酬金</div>
                     <div class="col-md-4 data">
                         <input type="text" class="form-control" placeholder="金额"
-                               name="reward" value="">
+                               name="reward" value="0">
                     </div>
 
                     <div class="col-md-2 title">信息类别</div>
                     <div class="col-md-4 data">
                         <select class="form-control select2" style="width: 100%"
-                                name="bastus">
+                                name="class_message">
                                 <option value="0">失物信息</option>
                                 <option value="1">招领信息</option>
                         </select>
                     </div>
 
                     <div class="col-md-2 title">上传图片</div>
-                    <div class="col-md-4 data">
+                    <div class="col-md-10 data">
                         <input type="file" class="form-control" name="file" >
                     </div>
 
@@ -134,14 +154,15 @@
 							<textarea class="form-control" rows="3"
                                       name="description"></textarea>
                     </div>
-
                 </div>
             </div>
+
             <!--订单信息/--> <!--工具栏-->
 
             <div class="col-md-10 col-lg-offset-1 data text-center" style="margin-top: 15px">
                 <button type="submit" class="btn bg-maroon">发布</button>
                 <button type="button" class="btn bg-default" onclick="formReset()" >重置</button>
+                <button type="button" class="btn bg-default" onclick="history.back(-1);">返回</button>
             </div>
             <!--工具栏/--> </section>
         <!-- 正文区域 /-->
