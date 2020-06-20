@@ -106,7 +106,7 @@
         </h1>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="${pageContext.request.contextPath}/message/homepage.do">首页</a>
+                <a href="${pageContext.request.contextPath}/findSomeMess.do">首页</a>
             </li>
         </ol>
 

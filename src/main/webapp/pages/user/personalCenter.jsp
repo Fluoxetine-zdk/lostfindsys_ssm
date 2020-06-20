@@ -102,7 +102,7 @@
 <%--    <li class="breadcrumb-item">--%>
 <%--      <a href="index.html">Home</a>--%>
 <%--    </li>--%>
-    <li><a href="${pageContext.request.contextPath}/backstage/backstage-main.jsp"><i class="fa fa-dashboard"></i> 首页</a></li>
+    <li> <a href="${pageContext.request.contextPath}/usermain.do"> 首页</a></li>
     <li class="breadcrumb-item active">个人中心</li>
   </ol>
 

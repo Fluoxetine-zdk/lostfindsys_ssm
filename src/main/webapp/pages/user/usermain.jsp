@@ -110,8 +110,7 @@
 
     <div class="container-fluid" style="margin-right: 100px;margin-left: 100px">
         <!-- Page Heading/Breadcrumbs -->
-        <h1 class="mt-4 mb-3 text-center">失物招领网
-        </h1>
+        <h1 class="mt-4 mb-3 text-center">失物招领网</h1>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="${pageContext.request.contextPath}/usermain.do">首页</a>

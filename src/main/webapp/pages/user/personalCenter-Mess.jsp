@@ -123,7 +123,7 @@
                 </a>
                 </li>
                 <li><a href="${pageContext.request.contextPath}/pages/user/releaseMess.jsp">发布信息</a></li>
-                <li><a href="${pageContext.request.contextPath}/pages/user/personalCenter1.jsp">个人中心</a></li>
+                <li><a class="searchPic h-submitBtn png" id="h-submitBtn"  onclick="document:form1.submit();">个人中心</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout.do">注销</a></li>
             </ul>
             <form class="navbar-form navbar-right" action="${pageContext.request.contextPath}/searchMessByUser.do" method="post">
@@ -138,7 +138,10 @@
     </div>
 </nav>
 
-
+<!-- 隐藏提交表单 防止越权操作 -->
+<form action="${pageContext.request.contextPath}/userPersonalCenter.do" method="post" id="form1">
+    <input type="hidden" name="username" value="<security:authentication property="principal.username"></security:authentication>">
+</form>
 
 <div class="container">
 

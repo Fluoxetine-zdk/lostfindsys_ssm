@@ -105,10 +105,10 @@
     <h1 class="mt-4 mb-3">发布信息
         <small>Release Message</small>
     </h1>
-
     <ol class="breadcrumb">
-        <li><a href="${pageContext.request.contextPath}/pages/user/releaseMess.jsp"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="breadcrumb-item active">信息发布</li>
+        <li>
+            <a href="${pageContext.request.contextPath}/usermain.do"> 首页</a></li>
+        <li class="breadcrumb-item active" href="${pageContext.request.contextPath}/pages/user/releaseMess.jsp">信息发布</li>
     </ol>
     <form action="${pageContext.request.contextPath}/releaseMess.do" method="post" id="frm1" name="form" enctype="multipart/form-data" onSubmit="return beforeSubmit(this);">
         <!-- 正文区域 -->
