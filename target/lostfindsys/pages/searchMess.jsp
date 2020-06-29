@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
@@ -167,6 +168,8 @@
                     <div class="card-body">
                         <h2 class="card-title">发布人姓名：${message.username}</h2>
                         <p class="card-text">发布简介：${message.description}</p>
+                        <c:if test="${message.class_message == 0}"> <a class="btn btn-primary">失物信息</a></c:if>
+                        <c:if test="${message.class_message == 1}"> <a class="btn btn-primary">招领信息</a></c:if>
                         <a href="${pageContext.request.contextPath}/findByMessId.do?id=${message.id}" class="btn btn-primary">查看详情</a>
                     </div>
                     <div class="card-footer text-muted">

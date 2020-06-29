@@ -6,39 +6,14 @@
 <!-- 页面meta -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>数据 - AdminLTE2定制版</title>
-<meta name="description" content="AdminLTE2定制版">
-<meta name="keywords" content="AdminLTE2定制版">
+	<title>失物招领系统后台管理 | ADD Message</title>
+
 
 <!-- Tell the browser to be responsive to screen width -->
 <meta
 	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
 	name="viewport">
-<script>
 
-	function checkform(){
-		var username = document.getElementById("username")
-		var address = document.getElementById("address")
-		var description = document.getElementById("description")
-		if (username.value ==""){
-			alert("请填写用户名")
-			return (false)
-		}
-		if (address.value ==""){
-			alert("请填写 丢失/捡到 的地址")
-			return (false)
-		}
-		if (description.value ==""){
-			alert("请填写信息描述")
-			return (false)
-		}
-		if ((description,username,address).value !=""){
-			alert("发布成功)
-			return
-		}
-	}
-
-</script>
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
@@ -84,6 +59,31 @@
 	href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+
+	<script type="text/javascript">
+		function beforeSubmit(form){
+			if(form.username.value===''){
+				alert('用户名不能为空！');
+				form.username.focus();
+				return false;
+			}
+			if(form.address.value===''){
+				alert('地址不能为空！');
+				form.address.focus();
+				return false;
+			}
+			if(form.description.value===''){
+				alert('信息详情不能为空！');
+				form.description.focus();
+				return false;
+			}
+
+			alert("发布成功);
+			return true;
+
+
+		}
+	</script>
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -115,7 +115,7 @@
 			</section>
 			<!-- 内容头部 /-->
 
-			<form action="${pageContext.request.contextPath}/backstage/message/addMess.do" method="post"  onclick="return checkform()">
+			<form action="${pageContext.request.contextPath}/backstage/message/addMess.do" method="post" name="form" onSubmit="return beforeSubmit(this);">
 				<!-- 正文区域 -->
 				<section class="content"> <!--产品信息-->
 
@@ -143,14 +143,14 @@
 
 						<div class="col-md-2 title">丢失地点</div>
 						<div class="col-md-4 data">
-							<input type="text" class="form-control" id="adderss" name="address"
+							<input type="text" class="form-control" id="address" name="address"
 								placeholder="详细地址" value="">
 						</div>
 
 						<div class="col-md-2 title">酬金</div>
 						<div class="col-md-4 data">
 							<input type="text" class="form-control" placeholder="金额" id="reward"
-								name="reward" value="">
+								name="reward" value="0">
 						</div>
 
 						<div class="col-md-2 title">信息类别</div>

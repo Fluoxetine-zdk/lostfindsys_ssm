@@ -36,6 +36,7 @@
                 form.password.focus();
                 return false;
             }
+            alert("注册成功！请登录");
             return true;
         }
     </script>

@@ -50,7 +50,10 @@
 						href="${pageContext.request.contextPath}/backstage/message/findAll.do?page=1&size=5">
 							<i class="fa fa-circle-o"></i> 信息管理
 					</a></li>
-
+					<li id="system-setting"><a
+							href="${pageContext.request.contextPath}/backstage/findAllSysLog.do?page=1&size=5">
+						<i class="fa fa-circle-o"></i> 日志管理
+					</a></li>
 				</ul></li>
 
 		</ul>

@@ -21,41 +21,14 @@ import java.util.List;
 import java.util.UUID;
 
 @Controller
+@RequestMapping("")
 public class MessageController {
 
     @Autowired
     private IMessService messService;
     @Autowired
     private IUserService userService;
-    @Autowired
-    private ILeaveMessService leaveMessService;
 
-    @RequestMapping("/backstage/message/findAll.do")
-    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1") int page,@RequestParam(name = "size",required = true,defaultValue = "5") int size) throws Exception {
-        ModelAndView mv = new ModelAndView();
-        List<Message> messageList = messService.findAll(page,size);
-        PageInfo pageInfo = new PageInfo(messageList);
-        mv.addObject("pageInfo",pageInfo);
-        mv.setViewName("backstage/message-list");
-        return mv;
-    }
-
-
-
-    @RequestMapping("/addMess.do")
-    public String addMess(Message message) throws Exception {
-        messService.addMess(message);
-        return "redirect:findAll.do";
-    }
-
-    @RequestMapping("/backstage/message/findByMessId.do")
-    public ModelAndView backstageFindByMessId(int id) throws Exception {
-        ModelAndView mv = new ModelAndView();
-        Message message = messService.findByMessId(id);
-        mv.addObject(message);
-        mv.setViewName("backstage/message-update");
-        return mv;
-    }
 
     @RequestMapping("/userfindByMessId.do")
     public ModelAndView userFindByMessId(int id) throws Exception {
@@ -79,20 +52,9 @@ public class MessageController {
         return mv;
     }
 
-    @RequestMapping("/backstage/message/updateMess.do")
-    public String updateMess(Message message){
-        messService.updateMess(message);
-        return "redirect:findAll.do";
-    }
-
-    @RequestMapping("/backstage/message/deleteMess.do")
-    public String deleteMess(int id){
-        messService.deleteMess(id);
-        return "redirect:findAll.do";
-    }
 
     @RequestMapping("/findByClassMess.do")
-    public ModelAndView findByClassMess(int classmess,@RequestParam(name = "page",required = true,defaultValue = "1") int page,@RequestParam(name = "size",required = true,defaultValue = "10") int size){
+    public ModelAndView findByClassMess(Integer classmess,@RequestParam(name = "page",required = true,defaultValue = "1") Integer page,@RequestParam(name = "size",required = true,defaultValue = "10") Integer size){
         ModelAndView mv = new ModelAndView();
         List<Message> messageList = messService.findByClassMess(classmess,page,size);
         PageInfo pageInfo = new PageInfo(messageList);
@@ -107,7 +69,7 @@ public class MessageController {
     }
 
     @RequestMapping("/userOwnMess.do")
-    public ModelAndView findUserOwnMess(String username,@RequestParam(name = "page",required = true,defaultValue = "1") int page,@RequestParam(name = "size",required = true,defaultValue = "10") int size){
+    public ModelAndView findUserOwnMess(String username,@RequestParam(name = "page",required = true,defaultValue = "1") Integer page,@RequestParam(name = "size",required = true,defaultValue = "10") Integer size){
         ModelAndView mv = new ModelAndView();
         List<Message> messageList = messService.findUserOwnMess(username,page,size);
         PageInfo pageInfo = new PageInfo(messageList);
@@ -150,16 +112,18 @@ public class MessageController {
         // 设置图片上传路径
         String url = request.getSession().getServletContext()
                 .getRealPath("/img");
-        System.out.println(url);
+//      System.out.println(url);
         // 以绝对路径保存重名命后的图片
-        pictureFile.transferTo(new File(url + "/" + name + "." + ext));
-        message.setImgpath(name+"."+ext);
+        if (ext != null && ext != ""){
+            pictureFile.transferTo(new File(url + "/" + name + "." + ext));
+            message.setImgpath(name+"."+ext);
+        }
         messService.addMess(message);
         return "redirect:usermain.do";
     }
 
     @RequestMapping("/userFindByClassMess.do")
-    public ModelAndView userFindByClassMess(int classmess,@RequestParam(name = "page",required = true,defaultValue = "1") int page,@RequestParam(name = "size",required = true,defaultValue = "10") int size){
+    public ModelAndView userFindByClassMess(int classmess,@RequestParam(name = "page",required = true,defaultValue = "1") Integer page,@RequestParam(name = "size",required = true,defaultValue = "10") Integer size){
         ModelAndView mv = new ModelAndView();
         List<Message> messageList = messService.findByClassMess(classmess, page, size);
         PageInfo pageInfo = new PageInfo(messageList);
@@ -174,7 +138,7 @@ public class MessageController {
     }
 
     @RequestMapping("/searchMess.do")
-    public ModelAndView searchMess(String keyword,@RequestParam(name = "page",required = true,defaultValue = "1") int page,@RequestParam(name = "size",required = true,defaultValue = "5") int size){
+    public ModelAndView searchMess(String keyword,@RequestParam(name = "page",required = true,defaultValue = "1") Integer page,@RequestParam(name = "size",required = true,defaultValue = "20") Integer size){
         ModelAndView mv = new ModelAndView();
         List<Message> searchMessList = messService.searchMess(page, size, keyword);
         PageInfo pageInfo = new PageInfo(searchMessList);
@@ -184,7 +148,7 @@ public class MessageController {
     }
 
     @RequestMapping("/searchMessInBackstage.do")
-    public ModelAndView searchMessInBackstage(String keyword,@RequestParam(name = "page",required = true,defaultValue = "1") int page,@RequestParam(name = "size",required = true,defaultValue = "5") int size){
+    public ModelAndView searchMessInBackstage(String keyword,@RequestParam(name = "page",required = true,defaultValue = "1") Integer page,@RequestParam(name = "size",required = true,defaultValue = "5") Integer size){
         ModelAndView mv = new ModelAndView();
         List<Message> searchMessList = messService.searchMess(page,size,keyword);
         PageInfo pageInfo = new PageInfo(searchMessList);
@@ -194,7 +158,7 @@ public class MessageController {
     }
 
     @RequestMapping("/searchMessByUser.do")
-    public ModelAndView searchMessByUser(String keyword,@RequestParam(name = "page",required = true,defaultValue = "1") int page,@RequestParam(name = "size",required = true,defaultValue = "5") int size){
+    public ModelAndView searchMessByUser(String keyword,@RequestParam(name = "page",required = true,defaultValue = "1") Integer page,@RequestParam(name = "size",required = true,defaultValue = "20") Integer size){
         ModelAndView mv = new ModelAndView();
         List<Message> searchMessList = messService.searchMess(page,size,keyword);
         PageInfo pageInfo = new PageInfo(searchMessList);
@@ -203,28 +167,49 @@ public class MessageController {
         return mv;
     }
 
-    @RequestMapping("/backstage/message/findAllLeaveMess.do")
-    public ModelAndView findAllLeaveMessageInBackstage(int id,@RequestParam(name = "page",required = true,defaultValue = "1") int page,@RequestParam(name = "size",required = true,defaultValue = "5") int size){
-        ModelAndView mv = new ModelAndView();
-        List<LeaveMessage> allLeaveMessList = leaveMessService.findAllLeaveMess(id,page,size);
-        PageInfo pageInfo = new PageInfo(allLeaveMessList);
-        mv.addObject("pageInfo",pageInfo);
-        mv.addObject("msgid",id);
-        mv.setViewName("backstage/message-leaveMesslist");
-        return mv;
-    }
-
-    @RequestMapping("backstage/deleteLeaveMess.do")
-    public ModelAndView deleteLeaveMess(int id,int msgid){
-        ModelAndView mv = new ModelAndView();
-        leaveMessService.deleteLeaveMess(id);
-        List<LeaveMessage> allLeaveMessList = leaveMessService.findAllLeaveMess(msgid, 1, 5);
-        PageInfo pageInfo = new PageInfo(allLeaveMessList);
-        mv.addObject(pageInfo);
-        mv.setViewName("backstage/message-leaveMesslist");
-        return mv;
-    }
 
 
 
+
+
+
+
+    //    @RequestMapping("/backstage/message/findAll.do")
+//    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1") Integer page,@RequestParam(name = "size",required = true,defaultValue = "5") Integer size) throws Exception {
+//        ModelAndView mv = new ModelAndView();
+//        List<Message> messageList = messService.findAll(page,size);
+//        PageInfo pageInfo = new PageInfo(messageList);
+//        mv.addObject("pageInfo",pageInfo);
+//        mv.setViewName("backstage/message-list");
+//        return mv;
+//    }
+
+
+
+//    @RequestMapping("/backstage/message/addMess.do")
+//    public String addMess(Message message) throws Exception {
+//        messService.addMess(message);
+//        return "redirect:findAll.do";
+//    }
+
+//    @RequestMapping("/backstage/message/findByMessId.do")
+//    public ModelAndView backstageFindByMessId(Integer id) throws Exception {
+//        ModelAndView mv = new ModelAndView();
+//        Message message = messService.findByMessId(id);
+//        mv.addObject(message);
+//        mv.setViewName("backstage/message-update");
+//        return mv;
+//    }
+
+    //    @RequestMapping("/backstage/message/updateMess.do")
+//    public String updateMess(Message message){
+//        messService.updateMess(message);
+//        return "redirect:findAll.do";
+//    }
+
+//    @RequestMapping("/backstage/message/deleteMess.do")
+//    public String deleteMess(Integer id){
+//        messService.deleteMess(id);
+//        return "redirect:findAll.do";
+//    }
 }

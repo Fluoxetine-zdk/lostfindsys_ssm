@@ -161,15 +161,22 @@
 
                     <!-- Blog Post -->
                     <div class="card mb-4">
-                        <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                        <c:if test="${ not empty message.imgpath }">
+                            <img class="card-img-top" src="/img/${message.imgpath}" style="height: 400px;width: 600px">
+                        </c:if>
+                        <c:if test="${empty message.imgpath }">
+                            <img class="card-img-top" src="/img/noimg.png" style="height: 300px;width: 300px">
+                        </c:if>
                         <div class="card-body">
                             <h2 class="card-title">发布简介：${message.description}</h2>
                             <p class="card-text">发布人姓名：${message.username}</p>
                             <p class="card-text">
-                                <c:if test="${message.class_message == 0}">失物，寻找中。。。</c:if>
-                                <c:if test="${message.class_message == 1}">拾物，待认领。。。</c:if>
+<%--                                <c:if test="${message.class_message == 0}">失物，寻找中。。。</c:if>--%>
+<%--                                <c:if test="${message.class_message == 1}">拾物，待认领。。。</c:if>--%>
                             </p>
-                            <a href="${pageContext.request.contextPath}/message/findByMessId.do?id=${message.id}" class="btn btn-primary">查看详情</a>
+                            <c:if test="${message.class_message == 0}"> <a class="btn btn-primary">失物信息</a></c:if>
+                            <c:if test="${message.class_message == 1}"> <a class="btn btn-primary">招领信息</a></c:if>
+                            <a href="${pageContext.request.contextPath}/findByMessId.do?id=${message.id}" class="btn btn-primary">查看详情</a>
                         </div>
                         <div class="card-footer text-muted">
                             found at:${message.createdate}

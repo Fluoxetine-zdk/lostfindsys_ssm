@@ -29,7 +29,7 @@ public interface IMessageDao {
     @Delete("delete from message where id = #{id}")
     void deleteMess(int id);
 
-    @Select("select * from message where description like CONCAT('%',#{keyword},'%')  ")
+    @Select("select * from message where description like CONCAT('%',#{keyword},'%') ORDER BY createdate DESC ")
     List<Message> searchByDescription(String keyword);
 
     @Select("select * from message where username = #{username} ORDER BY createdate DESC")

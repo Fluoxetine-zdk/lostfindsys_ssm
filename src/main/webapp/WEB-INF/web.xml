@@ -9,6 +9,10 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  <listener>
+    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+  </listener>
+
   <!-- 设置配置文件路径-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -33,6 +37,10 @@
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
 
+
+
+
+  
   <!-- 解决中文乱码过滤器-->
   <filter>
     <filter-name>characterEncodingFilte</filter-name>
