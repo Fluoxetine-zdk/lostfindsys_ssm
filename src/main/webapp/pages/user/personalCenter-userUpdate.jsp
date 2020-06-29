@@ -21,8 +21,6 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/ionicons/css/ionicons.min.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/iCheck/square/blue.css">
@@ -35,17 +33,9 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.theme.default.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/select2/select2.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
     <link rel="stylesheet"
@@ -82,7 +72,7 @@
                     <security:authentication property="principal.username"></security:authentication>
                 </a>
                 </li>
-                <li><a href="${pageContext.request.contextPath}/">发布信息</a></li>
+                <li><a href="${pageContext.request.contextPath}/pages/user/releaseMess.jsp">发布信息</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout.do">注销</a></li>
             </ul>
         </div>
@@ -98,7 +88,7 @@
     </h1>
 
     <ol class="breadcrumb">
-        <li><a href="${pageContext.request.contextPath}/backstage/backstage-main.jsp"><i
+        <li><a href="${pageContext.request.contextPath}/usermain.do"><i
                 class="fa fa-dashboard"></i> 首页</a></li>
         <li class="breadcrumb-item active">About</li>
     </ol>
@@ -109,7 +99,7 @@
         <div class="col-lg-3 mb-4">
             <div class="list-group">
                 <a href="${pageContext.request.contextPath}/" class="list-group-item">个人信息</a>
-                <a href="${pageContext.request.contextPath}/role/findAll.do" class="list-group-item">发布信息</a>
+                <a href="${pageContext.request.contextPath}/userOwnMess.do?username=${user.username}" class="list-group-item">发布信息查看</a>
             </div>
         </div>
         <!-- Content Column -->
@@ -150,8 +140,7 @@
                 <input type="text" class="form-control" name="email" placeholder="邮箱地址" value="${user.email}">
             </div>
 
-        </div>
-    </div>
+
     <br />
     <br />
     <!--订单信息/--> <!--工具栏-->
@@ -166,7 +155,7 @@
 <!-- /.row -->
 
 </div>
-</form>
+
 <!-- /.container -->
 <br />
 <br />
@@ -177,17 +166,9 @@
 <br />
 <br />
 
-<%--<!-- Footer -->--%>
-<%--<footer class="md-footer">--%>
-<%--    <div class="container">--%>
-<%--        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>--%>
-<%--    </div>--%>
-    <!-- /.container -->
-</footer>
 
-<!-- Bootstrap core JavaScript -->
-<script src="/plugins/bootstrap/js/jquery.min.js"></script>
-<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
 
 </body>
 

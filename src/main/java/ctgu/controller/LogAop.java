@@ -98,52 +98,5 @@ public class LogAop {
 
         }
 
-
-
-
-
-
-//        long time = new Date().getTime() - visitTime.getTime(); //获取访问的时长
-//
-//        String url = "";
-//        //获取url
-//        if (clazz != null && method != null && clazz != LogAop.class) {
-//            //1.获取类上的@RequestMapping("/...")
-//            RequestMapping classAnnotation = (RequestMapping) clazz.getAnnotation(RequestMapping.class);
-//
-//                String[] classValue = classAnnotation.value();
-//                //2.获取方法上的@RequestMapping(xxx)
-//                RequestMapping methodAnnotation = method.getAnnotation(RequestMapping.class);
-//                if (methodAnnotation != null) {
-//                    String[] methodValue = methodAnnotation.value();
-//                    url = classValue[0] + methodValue[0];
-//
-//                    //获取访问的ip
-//                    String ip = request.getRemoteAddr();
-//
-//                    //获取当前操作的用户
-//                    String username = null;
-//                    SecurityContext context = SecurityContextHolder.getContext();//从上下文中获了当前登录的用户
-//                    if (!SecurityContextHolder.getContext().getAuthentication().getName().equals("anonymousUser")) {//判断是否登录
-//                        User user = (User) context.getAuthentication().getPrincipal();
-//                        username = user.getUsername();
-//                    }
-//
-//
-//
-//                    //将日志相关信息封装到SysLog对象
-//                    SysLog sysLog = new SysLog();
-//                    sysLog.setExecutionTime(time); //执行时长
-//                    sysLog.setIp(ip);
-//                    sysLog.setMethod("[类名] " + clazz.getName() + "[方法名] " + method.getName());
-//                    sysLog.setUrl(url);
-//                    sysLog.setUsername(username);
-//                    sysLog.setVisitTime(visitTime);
-//
-//                    //调用Service完成操作
-//                    sysLogService.save(sysLog);
-//                }
-//        }
-
     }
 }

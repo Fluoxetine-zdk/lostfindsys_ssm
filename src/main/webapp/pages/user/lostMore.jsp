@@ -20,8 +20,6 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/ionicons/css/ionicons.min.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/iCheck/square/blue.css">
@@ -34,17 +32,9 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.theme.default.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/select2/select2.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
     <link rel="stylesheet"
@@ -61,7 +51,6 @@
           href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
-    <link href="${pageContext.request.contextPath}/css/style2.css" rel="stylesheet">
 
     <style>
         body{
@@ -123,7 +112,7 @@
                 </a>
                 </li>
                 <li><a href="${pageContext.request.contextPath}/pages/user/releaseMess.jsp">发布信息</a></li>
-                <li><a href="${pageContext.request.contextPath}/pages/user/personalCenter1.jsp">个人中心</a></li>
+                <li><a class="searchPic h-submitBtn png" id="h-submitBtn"  onclick="document:form1.submit();">个人中心</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout.do">注销</a></li>
             </ul>
             <form class="navbar-form navbar-right" action="${pageContext.request.contextPath}/searchMessByUser.do" method="post">
@@ -138,7 +127,10 @@
     </div>
 </nav>
 
-
+<!-- 隐藏提交表单 防止越权操作 -->
+<form action="${pageContext.request.contextPath}/userPersonalCenter.do" method="post" id="form1">
+    <input type="hidden" name="username" value="<security:authentication property="principal.username"></security:authentication>">
+</form>
 
 <div class="container">
 

@@ -22,8 +22,6 @@
   <link rel="stylesheet"
         href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet"
-        href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet"
         href="${pageContext.request.contextPath}/plugins/ionicons/css/ionicons.min.css">
   <link rel="stylesheet"
         href="${pageContext.request.contextPath}/plugins/iCheck/square/blue.css">

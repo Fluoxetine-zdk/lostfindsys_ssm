@@ -17,12 +17,10 @@
     <script src="${pageContext.request.contextPath}https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="${pageContext.request.contextPath}https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/adminLTE/css/AdminLTE.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/adminLTE/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style2.css">
     <style>
         article {
             padding: 5px;
@@ -86,7 +84,7 @@
                     <article>
                         <c:if test="${message.class_message == 0}"><h2>失物信息</h2></c:if>
                         <c:if test="${message.class_message == 1}"><h2>招领信息</h2></c:if>
-                        发布时间:${message.createdate}<span lay-separator=""></span>
+                        发布时间:${message.createdate}
                         <fieldset>
                             <div id='main'>
                                 <p><div class="col-md-12">
@@ -120,7 +118,6 @@
                                         </form>
                                     </div>
                                 </div>
-                                </p>
                             </div>
 
                         </fieldset>
@@ -142,7 +139,7 @@
                                 <img class="card-img-top" src="/img/${message.imgpath}" style="height: 200px;width: 300px" >
                             </c:if>
                             <c:if test="${empty message.imgpath }">
-                                <img class="card-img-top" src="/img/noimg.png"  style="height: 300px;width: 300px">
+                                <img class="card-img-top" src="${pageContext.request.contextPath}/img/noimg.png"  style="height: 300px;width: 300px">
                             </c:if>
                             </tbody>
                         </table>
@@ -156,7 +153,7 @@
 
         </div>
     </div>
-</div>
+
 <!-- Footer -->
 <footer class="navbar text-center bg-black">
     <div class="center-block " style="margin-top: 12px">

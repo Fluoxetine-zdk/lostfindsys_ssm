@@ -77,11 +77,7 @@
 				form.description.focus();
 				return false;
 			}
-
-			alert("发布成功);
 			return true;
-
-
 		}
 	</script>
 </head>

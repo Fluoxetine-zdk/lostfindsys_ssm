@@ -20,8 +20,6 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/ionicons/css/ionicons.min.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/iCheck/square/blue.css">
@@ -34,17 +32,9 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.theme.default.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/select2/select2.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
     <link rel="stylesheet"
@@ -61,7 +51,7 @@
           href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
-    <link href="${pageContext.request.contextPath}/css/style2.css" rel="stylesheet">
+
 
     <style>
         body{
@@ -162,10 +152,10 @@
                     <!-- Blog Post -->
                     <div class="card mb-4">
                         <c:if test="${ not empty message.imgpath }">
-                            <img class="card-img-top" src="/img/${message.imgpath}" style="height: 400px;width: 600px">
+                            <img class="card-img-top" src="${pageContext.request.contextPath}/img/${message.imgpath}" style="height: 400px;width: 600px">
                         </c:if>
                         <c:if test="${empty message.imgpath }">
-                            <img class="card-img-top" src="/img/noimg.png" style="height: 300px;width: 300px">
+                            <img class="card-img-top" src="${pageContext.request.contextPath}/img/noimg.png" style="height: 300px;width: 300px">
                         </c:if>
                         <div class="card-body">
                             <h2 class="card-title">发布简介：${message.description}</h2>
@@ -206,7 +196,6 @@
 <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/raphael/raphael-min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/morris/morris.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/sparkline/jquery.sparkline.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/knob/jquery.knob.js"></script>
@@ -216,23 +205,15 @@
 <script src="${pageContext.request.contextPath}/plugins/datepicker/bootstrap-datepicker.js"></script>
 <script
         src="${pageContext.request.contextPath}/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/fastclick/fastclick.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/iCheck/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/adminLTE/js/app.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/select2/select2.full.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.zh-CN.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/bootstrap-markdown.js"></script>
 <script
         src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/locale/bootstrap-markdown.zh.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/markdown.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/to-markdown.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/ckeditor/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.extensions.js"></script>
@@ -245,7 +226,7 @@
 <script src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.categories.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/jQuery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
 
 </body>
 </html>

@@ -111,20 +111,15 @@
 
 
     </div>
-    <!-- /.login-box-body -->
 </div>
-<!-- /.login-box -->
 
-<!-- jQuery 2.2.3 -->
-<!-- Bootstrap 3.3.6 -->
-<!-- iCheck -->
-<script
+<script type="text/javascript"
         src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<script
+<script type="text/javascript"
         src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script
+<script type="text/javascript"
         src="${pageContext.request.contextPath}/plugins/iCheck/icheck.min.js"></script>
-<script>
+<script type="text/javascript">
     $(function() {
         $('input').iCheck({
             checkboxClass : 'icheckbox_square-blue',

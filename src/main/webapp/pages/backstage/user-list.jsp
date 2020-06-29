@@ -93,11 +93,11 @@
 		<!-- 内容头部 -->
 		<section class="content-header">
 			<h1>
-				数据管理 <small>数据列表</small>
+				用户管理 <small>数据列表</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a href="#">数据管理</a></li>
+				<li><a href="#">用户管理</a></li>
 				<li class="active">数据列表</li>
 			</ol>
 		</section>

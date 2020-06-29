@@ -19,8 +19,6 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/ionicons/css/ionicons.min.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/iCheck/square/blue.css">
@@ -33,17 +31,9 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.theme.default.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/select2/select2.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
     <link rel="stylesheet"
@@ -60,7 +50,6 @@
           href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
-    <link href="${pageContext.request.contextPath}/css/style2.css" rel="stylesheet">
 
     <style>
         body{
@@ -121,7 +110,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="${pageContext.request.contextPath}/login.jsp">登录<span class="sr-only"></span></a></li>
-                <li><a href="${pageContext.request.contextPath}/register.jsp">注册</a></li>
+                <li><a href="${pageContext.request.contextPath}/pages/register.jsp">注册</a></li>
             </ul>
             <form class="navbar-form navbar-right" action="${pageContext.request.contextPath}/searchMess.do" method="post">
                 <div class="form-group">

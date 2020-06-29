@@ -21,8 +21,6 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/ionicons/css/ionicons.min.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/iCheck/square/blue.css">
@@ -35,14 +33,10 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-    <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.css">
 
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/select2/select2.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.css">
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
     <link rel="stylesheet"
@@ -129,12 +123,12 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="/img/main3.jpg" alt="...">
+                    <img src="${pageContext.request.contextPath}/img/main3.jpg" alt="...">
                     <div class="carousel-caption">
                     </div>
                 </div>
                 <div class="item">
-                    <img src="/img/main3.jpg" alt="...">
+                    <img src="${pageContext.request.contextPath}/img/main3.jpg" alt="...">
                     <div class="carousel-caption">
                     </div>
                 </div>
@@ -155,7 +149,7 @@
         <!-- Marketing Icons Section -->
         <div class="row" style="background-color: white">
             <div class="col-lg-5" style="margin-left: 60px;margin-right: 30px">
-                <h3 class="card-header"><p class="text-center">失物信息</p></h3>
+                <h3 class="card-header text-center">失物信息</h3>
                 <footer><cite title="Source Title">Lost--------------</cite></footer>
                 <div class="card-body">
                     <div class="table-responsive wrapper">
@@ -185,7 +179,7 @@
             </div>
 
             <div class="col-lg-5" style="margin-left: 30px;margin-right: 30px">
-                <h3 class="card-header"><p class="text-center">招领信息</p></h3>
+                <h3 class="card-header text-center">招领信息</h3>
                 <footer><cite title="Source Title">Found--------------</cite></footer>
                 <div class="card-body ">
                     <div class="table-responsive">
@@ -239,7 +233,6 @@
 <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/raphael/raphael-min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/morris/morris.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/sparkline/jquery.sparkline.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/knob/jquery.knob.js"></script>
@@ -249,23 +242,15 @@
 <script src="${pageContext.request.contextPath}/plugins/datepicker/bootstrap-datepicker.js"></script>
 <script
         src="${pageContext.request.contextPath}/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/fastclick/fastclick.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/iCheck/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/adminLTE/js/app.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/select2/select2.full.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-<script
-        src="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.zh-CN.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/bootstrap-markdown.js"></script>
 <script
         src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/locale/bootstrap-markdown.zh.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/markdown.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/to-markdown.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/ckeditor/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.extensions.js"></script>

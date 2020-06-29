@@ -18,12 +18,10 @@
     <script src="${pageContext.request.contextPath}https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
     <script src="${pageContext.request.contextPath}https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/adminLTE/css/AdminLTE.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/adminLTE/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style2.css">
     <style>
         article {
             padding: 5px;
@@ -66,7 +64,7 @@
                 </a>
                 </li>
                 <li><a href="${pageContext.request.contextPath}/pages/user/releaseMess.jsp">发布信息</a></li>
-                <li><a href="${pageContext.request.contextPath}/pages/user/personalCenter.jsp">个人中心</a></li>
+                <li><a class="searchPic h-submitBtn png" id="h-submitBtn"  onclick="document:form1.submit();">个人中心</a></li>
                 <li><a href="${pageContext.request.contextPath}/logout.do">注销</a></li>
             </ul>
             <form class="navbar-form navbar-right" action="${pageContext.request.contextPath}/searchMessByUser.do" method="post">
@@ -81,6 +79,11 @@
     </div>
 </nav>
 
+<!-- 隐藏提交表单 防止越权操作 -->
+<form action="${pageContext.request.contextPath}/userPersonalCenter.do" method="post" id="form1">
+    <input type="hidden" name="username" value="<security:authentication property="principal.username"></security:authentication>">
+</form>
+
 <div id="Body">
     <div class="body">
         <div class="left">
@@ -90,7 +93,7 @@
                     <article>
                         <c:if test="${message.class_message == 0}"><h2>失物信息</h2></c:if>
                         <c:if test="${message.class_message == 1}"><h2>招领信息</h2></c:if>
-                        发布时间:${message.createdate}<span lay-separator=""></span>
+                        发布时间:${message.createdate}
                         <fieldset>
                             <div id='main'>
                                 <p><div class="col-md-12">
@@ -125,7 +128,6 @@
                                         </form>
                                     </div>
                                 </div>
-                                </p>
                             </div>
 
                         </fieldset>
@@ -144,10 +146,10 @@
                             <tbody>
 
                             <c:if test="${ not empty message.imgpath }">
-                                <img class="card-img-top" src="/img/${message.imgpath}" style="height: 200px;width: 300px" >
+                                <img class="card-img-top" src="${pageContext.request.contextPath}/img/${message.imgpath}" style="height: 200px;width: 300px" >
                             </c:if>
                             <c:if test="${empty message.imgpath }">
-                                <img class="card-img-top" src="/img/noimg.png" style="height: 300px;width: 300px" >
+                                <img class="card-img-top" src="${pageContext.request.contextPath}/img/noimg.png" style="height: 300px;width: 300px" >
                             </c:if>
                             </tbody>
                         </table>
